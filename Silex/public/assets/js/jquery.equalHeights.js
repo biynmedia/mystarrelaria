@@ -1,10 +1,10 @@
-$.fn.equalHeights = function(px) {
-	$(this).each(function(){
+jQuery.fn.equalHeights = function(px) {
+	jQuery(this).each(function(){
 		var currentTallest = 0;
-		$(this).children().each(function(i){
-			if ($(this).height() > currentTallest) { currentTallest = $(this).height(); }
+		jQuery(this).children().each(function(i){
+			if (jQuery(this).height() > currentTallest) { currentTallest = jQuery(this).height(); }
 		});
-		$(this).children().css({'min-height': currentTallest});
+		jQuery(this).children().css({'min-height': currentTallest});
 	});
 	return this;
 };
