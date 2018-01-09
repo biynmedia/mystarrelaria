@@ -14,7 +14,14 @@ $app->register(new SecurityServiceProvider(), array(
         'main' => array(
             'pattern'   => '^/',
             'http'      => true,
-            'anonymous' => true
+            'anonymous' => true,
+            'form'      => [
+                'login_path' => '/connexion.html',
+                'check_path' => '/connexion.html/login_check',
+            ],
+            'logout'    => [
+                'logout_path' => '/deconnexion.html'
+            ],
             )
         ),
         'security.access_rules' => array(),

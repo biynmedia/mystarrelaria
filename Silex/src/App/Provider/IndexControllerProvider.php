@@ -24,9 +24,33 @@ class IndexControllerProvider implements ControllerProviderInterface {
                 # En option je peux donner un nom à la route, qui servira plus tard
                 # pour la créations de lien : "controller_action"
                 ->bind('index_index');
+
+            # Page Inscription
+        $controllers
+            ->get('/inscription.html', 'App\Controller\IndexController::inscriptionAction')
+            ->bind('news_inscription');
+
+            # POST Inscription
+        $controllers
+            ->post('/inscription.html', 'App\Controller\IndexController::inscriptionPost')
+            ->bind('news_inscription_post');
+
+            # Page Connexion
+        $controllers
+            ->get('/connexion.html', 'App\Controller\IndexController::connexionAction')
+            ->bind('news_connexion');
+
+            # Page Deconnexion
+        $controllers
+            ->get('/deconnexion.html', 'App\Controller\NewsController::deconnexionAction')
+            ->bind('news_deconnexion');
             
         # On retourne la liste des controllers (ControllerCollection)
         return $controllers;
         
+    }
+
+    public function infoAction() {
+        return phpinfo();
     }
 }
