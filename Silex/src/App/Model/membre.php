@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class membre implements UserInterface
+class Membre implements UserInterface
 {
 
     private $IDMEMBRE,
@@ -12,7 +12,11 @@ class membre implements UserInterface
             $PRENOMMEMBRE,
             $EMAILMEMBRE,
             $MDPMEMBRE,
-            $ROLEMEMBRE;
+            $PHOTOMEMBRE,
+            $ROLEMEMBRE,
+            $DATEINSCRIPTION,
+            $LASTCOMEMBRE,
+            $LASTIPMEMBRE;
 
     /**
      * membre constructor.
@@ -23,14 +27,18 @@ class membre implements UserInterface
      * @param $MDPMEMBRE
      * @param $ROLEMEMBRE
      */
-    public function __construct($IDMEMBRE, $NOMMEMBRE, $PRENOMMEMBRE, $EMAILMEMBRE, $MDPMEMBRE, $ROLEMEMBRE)
+    public function __construct($IDMEMBRE, $NOMMEMBRE, $PRENOMMEMBRE, $EMAILMEMBRE, $MDPMEMBRE, $PHOTOMEMBRE, $ROLEMEMBRE, $DATEINSCRIPTION, $LASTCOMEMBRE, $LASTIPMEMBRE)
     {
-        $this->IDMEMBRE         = $IDMEMBRE;
-        $this->NOMMEMBRE        = $NOMMEMBRE;
-        $this->PRENOMMEMBRE     = $PRENOMMEMBRE;
-        $this->EMAILMEMBRE      = $EMAILMEMBRE;
-        $this->MDPMEMBRE        = $MDPMEMBRE;
-        $this->ROLEMEMBRE[]     = $ROLEMEMBRE;
+        $this->IDMEMBRE        = $IDMEMBRE;
+        $this->NOMMEMBRE       = $NOMMEMBRE;
+        $this->PRENOMMEMBRE    = $PRENOMMEMBRE;
+        $this->EMAILMEMBRE     = $EMAILMEMBRE;
+        $this->MDPMEMBRE       = $MDPMEMBRE;
+        $this->PHOTOMEMBRE     = $PHOTOMEMBRE;
+        $this->ROLEMEMBRE      = $ROLEMEMBRE;
+        $this->DATEINSCRIPTION = $DATEINSCRIPTION;
+        $this->LASTCOMEMBRE    = $LASTCOMEMBRE;
+        $this->LASTIPMEMBRE    = $LASTIPMEMBRE;
     }
 
     /**
@@ -76,9 +84,41 @@ class membre implements UserInterface
     /**
      * @return mixed
      */
+    public function getPHOTOMEMBRE()
+    {
+        return $this->PHOTOMEMBRE;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getRoles()
     {
         return $this->ROLEMEMBRE;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDATEINSCRIPTION()
+    {
+        return $this->DATEINSCRIPTION;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLASTCOMEMBRE()
+    {
+        return $this->LASTCOMEMBRE;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLASTIPMEMBRE()
+    {
+        return $this->LASTIPMEMBRE;
     }
 
     /**

@@ -50,7 +50,4 @@ class IndexControllerProvider implements ControllerProviderInterface {
         
     }
 
-    public function infoAction() {
-        return phpinfo();
-    }
 }

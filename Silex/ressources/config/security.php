@@ -29,11 +29,3 @@ $app->register(new SecurityServiceProvider(), array(
     )
 );
 
-# use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
-$app['security.encoder.digest'] = function() use($app) {
-    return new MessageDigestPasswordEncoder('sha1', false, 1);
-};
-
-$app['security.default_encoder'] = function() use($app) {
-    return $app['security.encoder.digest'];
-};
