@@ -118,7 +118,7 @@ class Membre implements UserInterface
      */
     public function getLASTIPMEMBRE()
     {
-        return $this->LASTIPMEMBRE;
+        return $this->LASTIPMEMBRE->get('request')->getClientIp();
     }
 
     /**
