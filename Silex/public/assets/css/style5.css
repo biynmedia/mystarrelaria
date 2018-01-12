@@ -833,6 +833,7 @@ button.mfp-arrow:hover {
 
 .nav-side .navigation > li > a {
     padding: 10px 12px;
+
 }
 
 .nav-side .navigation > li > a:hover,
@@ -900,6 +901,10 @@ button.mfp-arrow:hover {
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
+}
+
+.head-right .navigation>li>a {
+    text-transform: uppercase;
 }
 
 .widgets-head {
