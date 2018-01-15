@@ -19,5 +19,11 @@ class IndexController
             'message'  => $message
         ]);
     }
-    
+
+    public function adminAction(Application $app) {
+
+        return $app['twig']->render('admin.html.twig');
+
+    }
+
 }

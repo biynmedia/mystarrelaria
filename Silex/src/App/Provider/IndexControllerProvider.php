@@ -24,7 +24,11 @@ class IndexControllerProvider implements ControllerProviderInterface {
                 # En option je peux donner un nom à la route, qui servira plus tard
                 # pour la créations de lien : "controller_action"
                 ->bind('index_index');
-            
+
+            $controllers
+                ->get('/', 'App\Controller\IndexController::adminAction')
+                ->bind('admin_admin');
+
         # On retourne la liste des controllers (ControllerCollection)
         return $controllers;
         
