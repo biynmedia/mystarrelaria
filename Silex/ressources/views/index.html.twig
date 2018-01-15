@@ -3,75 +3,209 @@
 {# Block de title défini dans base.html.twig #}
 {% block title %} Accueil {% endblock %}
 
+
 {# Block de Contenu défini dans base.html.twig #}
 {% block contenu %}
-    <div class="row">
-        <div class="sixteen columns">
-            <div class="eight columns alpha content">
+<div class="container">
 
-                <h3 class="widget-title">News</h3>
-
-                <article class="post">
-                    <div class="post-intro">
-                        <img src="http://placekitten.com/g/460/205" alt="" class="scale-with-grid" />
-                        <h2><a href="#">Renaissance: Masters Series</a></h2>
-                    </div><!-- /intro -->
-                    <div class="post-body">
-                        <p class="meta"><time class="post-date" datetime="2012-10-10">10 Oct, 2012</time> <span class="bull">&bull;</span> <a href="#">12 Comments</a></p>
-                        <p>I am really excited to announce that I'll be compiling the next album, set for a November 2012 release, which will be my 13th compilation. In 2001 Danny Howells and I released The Masters Series Part Four.</p>
-                    </div>
-                </article><!-- /post -->
-
-                <article class="post">
-                    <div class="post-intro">
-                        <img src="http://placekitten.com/g/460/205" alt="" class="scale-with-grid" />
-                        <h2><a href="#">Renaissance: Masters Series</a></h2>
-                    </div><!-- /intro -->
-                    <div class="post-body">
-                        <p class="meta"><time class="post-date" datetime="2012-10-10">10 Oct, 2012</time> <span class="bull">&bull;</span> <a href="#">12 Comments</a></p>
-                        <p>I am really excited to announce that I'll be compiling the next album, set for a November 2012 release, which will be my 13th compilation. In 2001 Danny Howells and I released The Masters Series Part Four.</p>
-                    </div>
-                </article><!-- /post -->
-
-                <article class="post">
-                    <div class="post-intro">
-                        <img src="http://placekitten.com/g/460/205" alt="" class="scale-with-grid" />
-                        <h2><a href="#">Renaissance: Masters Series. This is the one with Dave Seaman in Moscow, Russia</a></h2>
-                    </div><!-- /intro -->
-                    <div class="post-body">
-                        <p class="meta"><time class="post-date" datetime="2012-10-10">10 Oct, 2012</time> <span class="bull">&bull;</span> <a href="#">12 Comments</a></p>
-                        <p>I am really excited to announce that I'll be compiling the next album, set for a November 2012 release, which will be my 13th compilation. In 2001 Danny Howells and I released The Masters Series Part Four.</p>
-                    </div>
-                </article><!-- /post -->
-
-                <article class="post">
-                    <div class="post-intro">
-                        <img src="http://placekitten.com/g/460/205" alt="" class="scale-with-grid" />
-                        <h2><a href="#">Renaissance: Masters Series</a></h2>
-                    </div><!-- /intro -->
-                    <div class="post-body">
-                        <p class="meta"><time class="post-date" datetime="2012-10-10">10 Oct, 2012</time> <span class="bull">&bull;</span> <a href="#">12 Comments</a></p>
-                        <p>I am really excited to announce that I'll be compiling the next album, set for a November 2012 release, which will be my 13th compilation. In 2001 Danny Howells and I released The Masters Series Part Four.</p>
-                    </div>
-                </article><!-- /post -->
-
-                <article class="post">
-                    <div class="post-intro">
-                        <img src="http://placekitten.com/g/460/205" alt="" class="scale-with-grid" />
-                        <h2><a href="#">Renaissance: Masters Series</a></h2>
-                    </div><!-- /intro -->
-                    <div class="post-body">
-                        <p class="meta"><time class="post-date" datetime="2012-10-10">10 Oct, 2012</time> <span class="bull">&bull;</span> <a href="#">12 Comments</a></p>
-                        <p>I am really excited to announce that I'll be compiling the next album, set for a November 2012 release, which will be my 13th compilation. In 2001 Danny Howells and I released The Masters Series Part Four.</p>
-                    </div>
-                </article><!-- /post -->
-
+    <div id="slider" class="row">
+        <div class="col-md-12">
+            <div class="home-slider ci-slider loading slider-no-border-bottom-radius" data-animation="fade" data-direction="horizontal" data-slideshow="0" data-slideshowspeed="3000" data-animationspeed="600">
+                <ul class="slides">
+                    <li>
+                        <a href="https://www.cssigniter.com/vip/muzak5/discography/little-lies/">
+                            <img src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/slider001.jpg" alt="exclusive mix for our readers" />
+                            <div class="slide-text">
+                                <h2>exclusive mix for our readers</h2>
+                                <a href="https://www.cssigniter.com/vip/muzak5/discography/little-lies/" class="btn"> Listen Now </a>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="video-slide"><iframe width="750" height="422" src="https://www.youtube.com/embed/r8pKDk8bHNM?feature=oembed" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></li>
+                    <li>
+                        <a href="https://www.cssigniter.com/vip/muzak5/galleries/lib/">
+                            <img src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/slider002.jpg" alt="new photo gallery from Lib, New York" />
+                            <div class="slide-text">
+                                <h2>new photo gallery from Lib, New York</h2>
+                                <a href="https://www.cssigniter.com/vip/muzak5/galleries/lib/" class="btn"> View Gallery </a>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cssigniter.com/vip/muzak5/events/">
+                            <img src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/slider003.jpg" alt="tour dates announced" />
+                            <div class="slide-text">
+                                <h2>tour dates announced</h2>
+                                <a href="https://www.cssigniter.com/vip/muzak5/events/" class="btn"> View Tour Dates </a>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ol class="ci-control-nav ci-control-paging">
+                    <li>
+                        <a class="ci-active">1</a>
+                        <a class="">2</a>
+                        <a class="">3</a>
+                        <a class="">4</a>
+                    </li>
+                </ol>
+                <ul class="ci-direction-nav">
+                    <li>
+                        <a class="ci-prev" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="ci-next" href="#"></a>
+                    </li>
+                </ul>
             </div>
+        </div>
+    </div>
+
+
+    <div class="hero-player">
+        <div class="ci-soundplayer ">
+            <div class="ci-soundplayer-controls">
+                <a class="ci-soundplayer-prev" href="#"><i class="fa fa-step-backward"></i></a>
+                <a class="ci-soundplayer-play" href="#"><i class="fa fa-play"></i></a>
+                <a class="ci-soundplayer-next" href="#"><i class="fa fa-step-forward"></i></a>
+            </div>
+            <div class="ci-soundplayer-meta">
+                <span class="track-title"></span>
+                <div class="track-bar">
+                    <div class="progress-bar"></div>
+                    <div class="load-bar"></div>
+                </div>
+                <span class="track-position">00:00</span>
+            </div>
+            <ol class="ci-soundplayer-tracklist">
+                <li><a class="inline-exclude" href="https://www.cssigniter.com/assets/audio/track01.mp3">Nobody Move - Optional subtitle. Radio edit</a></li>
+                <li><a class="inline-exclude" href="https://www.cssigniter.com/assets/audio/track02.mp3">Return Spooky - Optional subtitle. Club mix</a></li>
+                <li><a class="inline-exclude" href="https://www.cssigniter.com/assets/audio/track03.mp3">On the downbeat - </a></li>
+                <li><a class="inline-exclude" href="https://www.cssigniter.com/assets/audio/track04.mp3">The Player - Ramon Tapia & Stavroz</a></li>
+                <li><a class="inline-exclude" href="https://www.cssigniter.com/assets/audio/track05.mp3">Sunrise - Optional Subtitle</a></li>
+                <li><a class="inline-exclude" href="https://api.soundcloud.com/tracks/198714762">Souncloud Track - </a></li>
+            </ol>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 content">
+            <h3 class="widget-title">News</h3>
+            <article class="post group">
+                <div class="post-intro">
+                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/radio-slave-function-remix-scuba-on-claustrophobia-remixes-lp/" title="Permalink to Radio Slave, Function remix Scuba on Claustrophobia Remixes LP"> Radio Slave, Function remix Scuba on Claustrophobia Remixes LP </a></h2>
+                </div>
+                <div class="post-body">
+                    <p class="meta">
+                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
+                            October 26, 2017
+                        </time>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/radio-slave-function-remix-scuba-on-claustrophobia-remixes-lp/#respond">No Comments</a>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
+                    </p>
+                </div>
+            </article>
+            <article class="post group">
+                <div class="post-intro">
+                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/giorgio-gigli-and-brendon-moeller-partner-on-the-anatomy-of-thought/" title="Permalink to Giorgio Gigli and Brendon Moeller partner on The Anatomy Of Thought"> Giorgio Gigli and Brendon Moeller partner on The Anatomy Of Thought </a></h2>
+                </div>
+                <div class="post-body">
+                    <p class="meta">
+                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
+                            October 26, 2017
+                        </time>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/giorgio-gigli-and-brendon-moeller-partner-on-the-anatomy-of-thought/#respond">No Comments</a>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
+                    </p>
+                </div>
+            </article>
+            <article class="post group">
+                <div class="post-intro">
+                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/richie-hawtin-tale-of-us-play-the-bpm-festival-2017/" title="Permalink to Richie Hawtin, Tale Of Us play The BPM Festival 2017"> Richie Hawtin, Tale Of Us play The BPM Festival 2017 </a></h2>
+                </div>
+                <div class="post-body">
+                    <p class="meta">
+                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
+                            October 26, 2017
+                        </time>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/richie-hawtin-tale-of-us-play-the-bpm-festival-2017/#respond">No Comments</a>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
+                    </p>
+                </div>
+            </article>
+            <article class="post group">
+                <div class="post-intro">
+                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/grey-area-label-launches-with-first-12-inch/" title="Permalink to Grey Area label launches with first 12-inch"> Grey Area label launches with first 12-inch </a></h2>
+                </div>
+                <div class="post-body">
+                    <p class="meta">
+                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
+                            October 26, 2017
+                        </time>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/grey-area-label-launches-with-first-12-inch/#respond">No Comments</a>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
+                    </p>
+                </div>
+            </article>
+            <article class="post group">
+                <div class="post-intro">
+                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/sushitech-lines-up-double-eps-from-delano-smith-and-steve-osullivan/" title="Permalink to Sushitech lines up double-EPs from Delano Smith and Steve O&#8217;Sullivan"> Sushitech lines up double-EPs from Delano Smith and Steve O&#8217;Sullivan </a></h2>
+                </div>
+                <div class="post-body">
+                    <p class="meta">
+                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
+                            October 26, 2017
+                        </time>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/sushitech-lines-up-double-eps-from-delano-smith-and-steve-osullivan/#respond">No Comments</a>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
+                    </p>
+                </div>
+            </article>
+            <div id="paging" class="navigation group">
+            <span aria-current='page' class='page-numbers current'>1</span>
+            <a class='page-numbers' href='https://www.cssigniter.com/vip/muzak5/home-style-2/page/2/'>2</a>
+            <a class="next page-numbers" href="https://www.cssigniter.com/vip/muzak5/home-style-2/page/2/">Next &raquo;</a>
+        </div>
+    </div>
+
+
+
 
             {% include 'inc/sidebar.html' %}
-        </div><!-- /sixteen columns -->
-    </div><!-- /row -->
+    </div> <!-- /raw -->
 
     </div><!-- /container -->
+    </div> <!-- fin du container définit dans menu -->
 
 {% endblock %}

@@ -1,121 +1,169 @@
-jQuery(window).load(function() {
-	jQuery('.flexslider').flexslider({
-		directionNav: false
-	});	
-});
+( function( $ ) {
+	'use strict';
 
-jQuery.fn.exists = function(){ return this.length>0; }
+	/* -----------------------------------------
+	Responsive Menus Init with mmenu
+	----------------------------------------- */
+	var $mainNav   = $( '.navigation' );
+	var $mobileNav = $( '#mobilemenu' );
 
-jQuery(document).ready(function($) {
+	$mainNav.clone().removeAttr( 'id' ).removeClass().appendTo( $mobileNav );
+	$mobileNav.find( 'li' ).removeAttr( 'id' );
 
-	// Main navigation
-	$('ul.sf-menu').superfish({ 
-	    delay:       1000,                            
-	    animation:   {opacity:'show',height:'show'},  
-	    speed:       'fast',                                                  
-	    dropShadows: false                            
-	}); 
-	
-	// Responsive Menu
-    // Create the dropdown base
-    $("<select class='alt-nav' />").appendTo("#nav");
+	$mobileNav.mmenu({
+		offCanvas: {
+			position: 'top',
+			zposition: 'front'
+		},
+		"autoHeight": true,
+		"navbars": [
+			{
+				"position": "top",
+				"content": [
+					"prev",
+					"title",
+					"close"
+				]
+			}
+		],
+		"extensions": ["theme-dark"]
+	});
 
-    // Create default option "Go to..."
-    $("<option />", {
-       "selected": "selected",
-       "value"   : "",
-       "text"    : "Go to..."
-    }).appendTo("#navigation select");
 
-    // Populate dropdown with menu items
-    $("#navigation a").each(function() {
-     var el = $(this);
-     $("<option />", {
-         "value"   : el.attr("href"),
-         "text"    : el.text()
-     }).appendTo("nav select");
-    });
+	/* -----------------------------------------
+	Main Navigation Init
+	----------------------------------------- */
+	$mainNav.superfish({
+		delay: 300,
+		animation: { opacity: 'show', height: 'show' },
+		speed: 'fast',
+		dropShadows: false
+	});
 
-    $(".alt-nav").change(function() {
-      window.location = $(this).find("option:selected").val();
-    });
-       
-    // Tour dates widget
-	if ($('.widget .tour-dates li').exists()) {
-		$('.widget .tour-dates li').equalHeights();
-	}
-	
-	// Tracklisting
-	if ($('.track-listen').exists()) {
-		$('.track-listen').click(function(){
-			var target 		= $(this).siblings('.track-audio');
-			var siblings	= $(this).parents('.track').siblings().children('.track-audio');
+
+	/* -----------------------------------------
+	Responsive Videos with fitVids
+	----------------------------------------- */
+	$( 'body' ).fitVids();
+
+
+	/* -----------------------------------------
+	Tracklisting
+	----------------------------------------- */
+	var $tracklisten = $('.track-listen');
+	if ($tracklisten.length) {
+		$tracklisten.click(function() {
+			var target = $(this).siblings('.track-audio');
+			var siblings = $(this).parents('.track').siblings().children('.track-audio');
 			siblings.slideUp('fast');
 			target.slideToggle('fast');
 			return false;
 		});
 	}
-	
-	// Tracklisting check subtitles
-	if ($('.track').exists()) {
-		$('.track').each(function(){
+
+	/* -----------------------------------------
+	Tracklisting subtitles
+	----------------------------------------- */
+	var $track = $('.track');
+	if ($track.length) {
+		$track.each(function(){
 			var main_head = $(this).find('.main-head');
-			if (main_head.length == 0) 
+			if (main_head.length === 0)
 				$(this).addClass('track-single');
 		});
 	}
-	
-	// Lightbox
-		$("a[data-rel^='prettyPhoto']").prettyPhoto();
-		$("a[data-rel^='prettyPhoto']").each(function() {
-			$(this).attr("rel", $(this).data("rel"));
-		});
-	
-    // Content videos
-    if ($('.post').exists()) {
-	    $('.post').fitVids();
-	}
-	
-	// Centered Play icon (Videos)
-	if ($('.latest-video').exists()) {
-		$('.latest-video').each(function() {
-			var lv_s = $(this).find('a span');
-			var lv_w = $(this).width();
-			var lv_h = $(this).height();
-			lv_s.css('left',(lv_w/2)-26);
-			lv_s.css('top',(lv_h/2)-46);
-		})
-	}
-	   
-});
 
-// Making the jWPlayer call a bit more generic
-function setupjw(playerID,track) {
-	jwplayer(playerID).setup({
-		autostart: false,
-		file: track,
-		flashplayer: "jwplayer/player.swf",
-		width: "100%",
-		height:"65",
-		events: {
-			onPlay: function(event) {
-				var isiPad = navigator.userAgent.match(/iPad/i) != null; //fixing a nasty, really nasty bug on iPad.				
-				var now_playing = this.id;
-				$('.jw').each(function(){
-				if (isiPad) {
-					var other_player = $(this).find('div').attr('id');
-				}
-				else {
-					var other_player = $(this).find('div').attr('id').slice(0,-8);
-				}	
-					if (other_player != now_playing) {
-						jwplayer(other_player).stop();
-					}
-				})
-			}
-        }
+	/* -----------------------------------------
+	Image Lightbox
+	----------------------------------------- */
+	$( ".ci-lightbox, a.zoom, a[data-rel^='prettyPhoto'], a[data-lightbox^='gal']" ).magnificPopup({
+		type: 'image',
+		mainClass: 'mfp-with-zoom',
+		gallery: {
+			enabled: true
+		},
+		zoom: {
+			enabled: true
+		}
 	});
-}
 
-// Hyphenator
-Hyphenator.run();
+
+	/* -----------------------------------------
+	SoundManager2 Init
+	----------------------------------------- */
+	soundManager.setup({
+		url: ThemeOption.swfPath
+	});
+
+	/* -----------------------------------------
+	Media Element
+	----------------------------------------- */
+	$( '.video-player video' ).mediaelementplayer();
+
+	/* -----------------------------------------
+	FlexSlider Init
+	----------------------------------------- */
+	var homeSlider = $( '.home-slider' );
+
+	if ( homeSlider.length ) {
+		var animation      = homeSlider.data( 'animation' ),
+				direction      = homeSlider.data( 'direction' ),
+				slideshow      = homeSlider.data( 'slideshow' ),
+				slideshowSpeed = homeSlider.data( 'slideshowspeed' ),
+				animationSpeed = homeSlider.data( 'animationspeed' );
+
+		homeSlider.flexslider({
+			animation     : animation,
+			direction     : direction,
+			slideshow     : slideshow,
+			slideshowSpeed: slideshowSpeed,
+			animationSpeed: animationSpeed,
+			namespace: 'ci-',
+			prevText: '',
+			nextText: '',
+			start: function( slider ) {
+				slider.removeClass( 'loading' );
+			},
+			before: function( slider ) {
+				var $current = $(slider.slides).eq(slider.currentSlide);
+				var $iframe = $current.find('iframe');
+
+				if ($iframe) {
+					$iframe.attr('src', $iframe.attr('src'));
+				}
+			}
+		});
+	}
+
+	$( window ).on( 'load', function() {
+		/* -----------------------------------------
+		Isotope
+		----------------------------------------- */
+		var $container = $( '.filter-container' );
+
+		if ( $container.length > 0 ) {
+			$container.isotope();
+
+			// filter items when filter link is clicked
+			var $filters = $( '.filters-nav li a' );
+			$filters.click( function( e ) {
+				var selector = $( this ).attr( 'data-filter' );
+				$( this ).parent().siblings().find( 'a' ).removeClass( 'selected' );
+				$( this ).addClass( 'selected' );
+
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 750,
+						easing: 'linear',
+						queue: false
+					}
+				});
+
+				e.preventDefault();
+			});
+		}
+
+	});
+
+})( jQuery );
