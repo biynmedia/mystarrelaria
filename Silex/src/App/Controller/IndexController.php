@@ -20,10 +20,4 @@ class IndexController
         ]);
     }
 
-    public function adminAction(Application $app) {
-
-        return $app['twig']->render('admin.html.twig');
-
-    }
-
 }
