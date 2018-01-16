@@ -9,7 +9,152 @@
 {% endblock %}
 
 {% block pagecontent %}
-    <h3>Nous vous invitons à remplir le formulaire ci-après.</h3>
+
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <form class="form-horizontal" method="POST"
+                  enctype="multipart/form-data">
+                <h3>Nous vous invitons à remplir le formulaire ci-après.</h3>
+                {# Pseudo de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Pseudo</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.PSEUDOARTISTE) }}
+                    </div>
+                </div>
+
+                {# Télephone de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Téléphone</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.TELARTISTE) }}
+                    </div>
+                </div>
+
+                {# Genre de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Genre</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.IDGENRE) }}
+                    </div>
+                </div>
+
+                {# Déscription de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Description</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.DESCARTISTE) }}
+                    </div>
+                </div>
+
+                {# Biographie de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Biographie</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.BIOARTISTE) }}
+                    </div>
+                </div>
+
+                {# Nom du manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nom du Manager</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.NOMMANAGER) }}
+                    </div>
+                </div>
+
+                {# Prénom du manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Prénom du Manager</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.PRENOMMANAGER) }}
+                    </div>
+                </div>
+
+                {# Email du manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email du Manager</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.EMAILMANAGER) }}
+                    </div>
+                </div>
+
+                {# Télephone du Manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Téléphone du Manager</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.TELMANAGER) }}
+                    </div>
+                </div>
+
+                {# Site internet de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Votre site internet</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.SITEINTERNETARTISTE) }}
+                    </div>
+                </div>
+
+                {# Facebook de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Facebook</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.FACEBOOKARTISTE) }}
+                    </div>
+                </div>
+
+                {# Twitter de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Twitter</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.TWITTERARTISTE) }}
+                    </div>
+                </div>
+
+                {# Soundcloud de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Soundcloud</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.SOUNDCLOUDARTISTE) }}
+                    </div>
+                </div>
+
+                {# Youtube de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Youtube</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.YOUTUBEARTISTE) }}
+                    </div>
+                </div>
+
+                {# Snapchat de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Snapchat</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.SNAPCHATARTISTE) }}
+                    </div>
+                </div>
+
+                {# Instagram de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Instagram</label>
+                    <div class="col-md-7">
+                        {{ form_row(form.INSTAGRAMARTISTE) }}
+                    </div>
+                </div>
+
+                {# Submit #}
+                <div class="form-group">
+                    <div class="col-xs-7 col-xs-offset-3">
+                        <button type="submit"
+                                value="S'inscrire">S'inscrire</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
 {% endblock %}
 
 {% block pagesidebar %}
