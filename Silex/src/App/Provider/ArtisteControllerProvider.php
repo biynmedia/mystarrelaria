@@ -20,7 +20,8 @@ class ArtisteControllerProvider implements ControllerProviderInterface {
         
             # Page Inscription
             $controllers
-                ->get('/inscription', 'App\Controller\ArtisteController::inscriptionAction')
+                ->match('/inscription', 'App\Controller\ArtisteController::inscriptionAction')
+                ->method('GET|POST')
                 ->bind('artiste_inscription');
 
             # Page Profil

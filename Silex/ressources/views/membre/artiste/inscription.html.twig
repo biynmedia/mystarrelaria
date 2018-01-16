@@ -1,7 +1,9 @@
 {% extends 'admin.html.twig' %}
 
-{% block stylesheets %} 
+{% block stylesheets %}
     {{ parent() }}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
 {% endblock %}
 
 {% block titre %}
@@ -9,134 +11,165 @@
 {% endblock %}
 
 {% block pagecontent %}
-    <h3>Nous vous invitons à remplir le formulaire ci-après.</h3>
 
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <form class="form-horizontal" method="POST"
+                  enctype="multipart/form-data" id="inscription">
+                <h3>Nous vous invitons à remplir le formulaire ci-après.</h3>
+                {# Pseudo de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Pseudo</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.PSEUDOARTISTE) }}
+                    </div>
+                </div>
 
+                {# Image de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        Votre image
+                    </label>
+                    <div class="col-md-9">
+                        {{ form_row(form.IMAGEARTISTE) }}
+                    </div>
+                </div>
 
-<div role="form" class="wpcf7" id="wpcf7-f231-p229-o1" lang="fr" dir="ltr">
+                {# Télephone de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Téléphone</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.TELARTISTE) }}
+                    </div>
+                </div>
 
-    <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+                {# Genre de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Genre <i class="fa fa-music" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
+                        {{ form_row(form.IDGENRE) }}
+                    </div>
+                </div>
 
-        <p>
-            <label>
-                Votre Pseudoe
-                <br />
-                <span class="wpcf7-form-control-wrap your-name"><input type="text" name="PSEUDOARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Votre numéro de téléphone
-                <br />
-                <span class="wpcf7-form-control-wrap your-name"><input type="text" name="TELARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Votre Description
-                <br />
-                <span class="wpcf7-form-control-wrap your-message"><textarea name="DESCARTISTE" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Votre Biographie
-                <br />
-                <span class="wpcf7-form-control-wrap your-message"><textarea name="BIOARTISTE" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Votre genre musical
-                <br />
-                <span class="wpcf7-form-control-wrap your-name">
-                    <select  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true">
-                        <?php while ($genres = mysql_fetch_array($genre) ) { ?>
-                        <option value="list_genre"><?php echo $genres['IDGENRE']; }?></option>
-                    </select>
-                </span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Prénom manager
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="PRENOMMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Nom Manager
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="NOMMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                email Manager
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="EMAILMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Tel Manager
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="TELMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Votre propre site inernet :
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="SITEINTERNETARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                SoundCloud
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="SOUNDCLOUDARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                YouTube
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="YOUTUBEARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Twitter
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="TWITTERARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Facebook
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="FACEBOOKARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Instagram
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="INSTAGRAMARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
-        <p>
-            <label>
-                Snapchat
-                <br />
-                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="SNAPCHATARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
-            </label>
-        </p>
+                {# Déscription de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Description</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.DESCARTISTE) }}
+                    </div>
+                </div>
 
-        <input value="M'inscrire" class="wpcf7-form-control wpcf7-submit" type="submit">
-    </form>
+                {# Biographie de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Biographie</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.BIOARTISTE) }}
+                    </div>
+                </div>
+
+                {# Nom du manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nom du Manager</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.NOMMANAGER) }}
+                    </div>
+                </div>
+
+                {# Prénom du manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Prénom du Manager</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.PRENOMMANAGER) }}
+                    </div>
+                </div>
+
+                {# Email du manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email du Manager <i class="fa fa-envelope" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
+                        {{ form_row(form.EMAILMANAGER) }}
+                    </div>
+                </div>
+
+                {# Télephone du Manager #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Téléphone du Manager <i class="fa fa-phone" aria-hidden="true"></i>
+                    </label>
+                    <div class="col-md-9">
+                        {{ form_row(form.TELMANAGER) }}
+                    </div>
+                </div>
+
+                {# Site internet de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Votre site internet <i class="fa fa-link" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
+                        {{ form_row(form.SITEINTERNETARTISTE) }}
+                    </div>
+                </div>
+
+                {# Facebook de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Facebook <i class="fa fa-facebook-official" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
+                        {{ form_row(form.FACEBOOKARTISTE) }}
+                    </div>
+                </div>
+
+                {# Twitter de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Twitter <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </label>
+                    <div class="col-md-9">
+                        {{ form_row(form.TWITTERARTISTE) }}
+                    </div>
+                </div>
+
+                {# Soundcloud de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Soundcloud <i class="fa fa-soundcloud" aria-hidden="true"></i></label>
+
+                    <div class="col-md-9">
+                        {{ form_row(form.SOUNDCLOUDARTISTE) }}
+                    </div>
+                </div>
+
+                {# Youtube de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Youtube <i class="fa fa-youtube-play" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
+                        {{ form_row(form.YOUTUBEARTISTE) }}
+                    </div>
+                </div>
+
+                {# Snapchat de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Snapchat <i class="fa fa-snapchat" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
+                        {{ form_row(form.SNAPCHATARTISTE) }}
+                    </div>
+                </div>
+
+                {# Instagram de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Instagram <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </label>
+                    <div class="col-md-9">
+                        {{ form_row(form.INSTAGRAMARTISTE) }}
+                    </div>
+                </div>
+
+                {# Submit #}
+                <div class="form-group">
+                    <div class="col-xs-7 col-xs-offset-3">
+                        <button type="submit"
+                                value="S'inscrire">S'inscrire</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
 
@@ -145,5 +178,27 @@
 {% endblock %}
 
 {% block javascripts %}
+
     {{ parent() }}
+
+    <script src="//cdn.ckeditor.com/4.8.0/basic/ckeditor.js"></script>
+    {#<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/progression.js') }}"></script>
+
+    <script>
+        CKEDITOR.replace('form_BIOARTISTE');
+        CKEDITOR.replace('form_DESCARTISTE');
+
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-d&eacute;posez un fichier ou cliquez ici',
+                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+            }
+        });
+
+    </script>
+
 {% endblock %}

@@ -1,89 +1,289 @@
 <?php
 namespace App\Controller;
 
-use Silex\Application;
-use Symfony\Component\HttpFoundation\Request;
 
+use App\Traits\Helper;
+use Silex\Application;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
+/**
+ * Class ArtisteController
+ * @package App\Controller
+ */
 class ArtisteController
 {
+
+    use Helper;
+
     /**
      * Affichage de la Page Inscription
-     * @return Symfony\Component\HttpFoundation\Response;
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response;
      */
     public function inscriptionAction(Application $app, Request $request) {
-        # Récupérer la liste des genres
 
+
+        # Récupération la liste des genres
         $genres = function() use($app) {
 
             # Récupération des Genres dans la BDD
             $genres = $app['idiorm.db']->for_table('genre')
                 ->find_result_set();
+
             # On formate l'affichage pour le champ select (ChoiceType)
             $array = [];
             foreach ($genres as $genre):
                 $array[$genre->NOMGENRE] = $genre->IDGENRE;
             endforeach;
+
             # On retourne le tableau formaté.
             return $array   ;
         };
 
+        # Créer un Formulaire permettant l'inscription d'un Artiste
+        $form = $app['form.factory']->createBuilder(FormType::class)
 
-        # Connexion a la BDD
-        $artiste = $app['idiorm.db']->for_table('artiste')->create();
+            # Champ PSEUDOARTISTE
+            ->add('PSEUDOARTISTE', TextType::class, [
+                'required'          => true,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'Pseudo..',
+                    'data-progression',
+                    'data-helper'       => 'Help users through forms by prividing helpful hinters'
+                ]
+            ])
 
-        # Affectation des valeurs
-        $artiste->PSEUDOARTISTE             = $request->get('PSEUDOARTISTE');
-        $artiste->TELARTISTE                = $request->get('TELARTISTE');
-        $artiste->DESCARTISTE               = $request->get('DESCARTISTE');
-        $artiste->BIOARTISTE                = $request->get('BIOARTISTE');
-        $artiste->SITEINTERNETARTISTE       = $request->get('SITEINTERNETARTISTE');
-        $artiste->FACEBOOKARTISTE           = $request->get('FACEBOOKARTISTE');
-        $artiste->TWITTERARTISTE            = $request->get('TWITTERARTISTE');
-        $artiste->SOUNDCLOUDARTISTE         = $request->get('SOUNDCLOUDARTISTE');
-        $artiste->YOUTUBEARTISTE            = $request->get('YOUTUBEARTISTE');
-        $artiste->SNAPCHATARTISTE           = $request->get('SNAPCHATARTISTE');
-        $artiste->INSTAGRAMARTISTE          = $request->get('INSTAGRAMARTISTE');
-        $artiste->PRENOMMANAGER             = $request->get('PRENOMMANAGER');
-        $artiste->NOMMANAGER                = $request->get('NOMMANAGER');
-        $artiste->EMAILMANAGER              = $request->get('EMAILMANAGER');
-        $artiste->TELMANAGER                = $request->get('TELMANAGER');
+            ->add('IMAGEARTISTE', FileType::class, [
+                'required'          => false,
+                'label'             => false,
+                'attr'              => [
+                    'class'             => 'dropify',
+                ]
+            ])
 
-        # On persiste en BDD
-        $artiste->save();
+            ->add('TELARTISTE', TextType::class, [
+                'required'          => true,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'Téléphone..',
+                ]
+            ])
+            ->add('IDGENRE', ChoiceType::class, [
+                'choices'           => $genres(),
+                'expanded'          => false,
+                'multiple'          => false,
+                'label'             => false,
+                'attr'                  => [
+                    'class'                 => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required'
+                ]
+            ])
+            ->add('DESCARTISTE', TextareaType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-textarea',
+                    'placeholder'       => 'Decrivez vous..'
+                ]
+            ])
+            ->add('BIOARTISTE', TextareaType::class, [
+                'required'          => true,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-textarea',
+                    'placeholder'       => 'Votre biographie..'
+                ]
+            ])
+            ->add('NOMMANAGER', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'Nom de votre manager..'
+                ]
+            ])
+            ->add('PRENOMMANAGER', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'Prénom de votre manager..'
+                ]
+            ])
+            ->add('EMAILMANAGER', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'Email..'
+                ]
+            ])
+            ->add('TELMANAGER', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'Téléphone..'
+                ]
+            ])
+            ->add('SITEINTERNETARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'URL..'
+                ]
+            ])
+            ->add('FACEBOOKARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'URL..'
+                ]
+            ])
+            ->add('TWITTERARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => '@..'
+                ]
+            ])
+            ->add('SOUNDCLOUDARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'URL..'
+                ]
+            ])
+            ->add('YOUTUBEARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'URL..'
+                ]
+            ])
+            ->add('SNAPCHATARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'URL..'
+                ]
+            ])
+            ->add('INSTAGRAMARTISTE', TextType::class, [
+                'required'          => false,
+                'label'             => false,
+                'constraints'       => array(new NotBlank()),
+                'attr'              => [
+                    'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
+                    'placeholder'       => 'URL..'
+                ]
+            ])
+            ->add('submit', SubmitType::class, ['label' => "S'inscrire !"])
+            ->getForm();
 
-        # On redirige l'utilisateur sur sa page profile
-        return $app->redirect('membre/artiste/profil.html.twig\'');
+        # Traitement des données POST
+        $form->handleRequest($request);
 
-        # Affichage dans la Vue
-        return $app['twig']->render('membre/artiste/inscription.html.twig');
+        // Todo La mathode is valid ne retourne rien il faut voir pourquoi...
+
+        echo 'IS VALID : ';
+        print_r($form->isValid());
+
+        # Vérification des données du formulaire
+//        if ($form->isValid()) :
+
+            # Récuperation des données
+            $artistes = $form->getData();
+
+            # Récupération de l'image
+            $image  = $artistes['IMAGEARTISTE'];
+            $chemin = PATH_PUBLIC . '/assets/images/artistes/'.$this->slugify($artistes['PSEUDOARTISTE']).'/';
+            $image->move($chemin, $this->slugify($artistes['PSEUDOARTISTE']).'.jpg');
+
+            # Insertion en BDD
+            $artiste = $app['idiorm.db']->for_table('artiste')->create();
+            $genre   = $app['idiorm.db']->for_table('genre')->find_one($artistes['IDGENRE']);
+
+            # On assoice les colonnes de notre BDD avec les valeurs du formulaire.
+
+            # Colonne mySQL                         # Valeurs du Formulaire
+            $artiste->genre_IDGENRE             = $artistes['IDGENRE'];
+            $membre_IDMEMBRE                    = // Todo il faut aussi l'ID du membre connecté... Donc il faut une inscription
+            $artiste->PSEUDOARTISTE             = $artistes['PSEUDOARTISTE'];
+            $artiste->TELARTISTE                = $artistes['TELARTISTE'];
+            $artiste->ALIASARTISTE              = $this->slugify($artistes['PSEUDOARTISTE']);
+            $artiste->IMAGEARTISTE              = $this->slugify($artistes['PSEUDOARTISTE']).'.jpg';
+            $artiste->DESCARTISTE               = $artistes['DESCARTISTE'];
+            $artiste->BIOARTISTE                = $artistes['BIOARTISTE'];
+            $artiste->SITEINTERNETARTISTE       = $artistes['SITEINTERNETARTISTE'];
+            $artiste->FACEBOOKARTISTE           = $artistes['FACEBOOKARTISTE'];
+            $artiste->TWITTERARTISTE            = $artistes['TWITTERARTISTE'];
+            $artiste->SOUNDCLOUDARTISTE         = $artistes['SOUNDCLOUDARTISTE'];
+            $artiste->YOUTUBEARTISTE            = $artistes['YOUTUBEARTISTE'];
+            $artiste->SNAPCHATARTISTE           = $artistes['SNAPCHATARTISTE'];
+            $artiste->INSTAGRAMARTISTE          = $artistes['INSTAGRAMARTISTE'];
+            $artiste->PRENOMMANAGER             = $artistes['PRENOMMANAGER'];
+            $artiste->NOMMANAGER                = $artistes['NOMMANAGER'];
+            $artiste->EMAILMANAGER              = $artistes['EMAILMANAGER'];
+            $artiste->TELMANAGER                = $artistes['TELMANAGER'];
+
+            print_r($artiste);
+
+            # Insertion en BDD
+            $artiste->save();
+
+            # On redirige l'utilisateur sur sa page profile
+            // Todo Redirection de l'utilisateur sur la page profil... Ne pourra se faire que lorsque la page sera faite...
+
+//        endif;
+
+        # Affichage du formulaire dans la Vue
+        return $app['twig']->render('membre/artiste/inscription.html.twig', [
+            'form' => $form->CreateView()
+        ]);
     }
 
     /**
      * Affichage de la Page Inscription
-     * @return Symfony\Component\HttpFoundation\Response;
+     * @return \Symfony\Component\HttpFoundation\Response;
      */
     public function profilAction(Application $app) {
-       
+
         # Création du Formulaire
 
         # Traitement du Formulaire
-       
+
         # Affichage dans la Vue
         return $app['twig']->render('membre/artiste/profil.html.twig');
-    }
-
-    /**
-     * @param Application $app
-     * @return Symfony\Component\HttpFoundation\Response;
-     */
-    public function artistesAction(Application $app) {
-        # Récupérer la liste des artistes
-           $artistes = $app['idiorm.db']->for_table('view_artistes')->find_result_set();
-
-        # Affichage dans la Vue
-        return $app['twig']->render('membre/artiste/artistes.html.twig', [
-            'artistes' => $artistes
-        ]);
     }
 
 }

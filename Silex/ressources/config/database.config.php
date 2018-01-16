@@ -25,6 +25,8 @@ $app->register(new IdiormServiceProvider(), array(
         'connection_string' => 'mysql:host='.DBHOST.';dbname='.DBNAME,
         'username' => DBUSERNAME,
         'password' => DBPASSWORD,
-        'id_column_overrides' => array()
+        'id_column_overrides' => array(
+            'genre' => 'IDGENRE'
+        )
     )
 ));

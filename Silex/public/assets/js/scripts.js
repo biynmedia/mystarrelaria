@@ -91,14 +91,14 @@
 	/* -----------------------------------------
 	SoundManager2 Init
 	----------------------------------------- */
-	soundManager.setup({
-		url: ThemeOption.swfPath
-	});
+	// soundManager.setup({
+	// 	url: ThemeOption.swfPath
+	// });
 
 	/* -----------------------------------------
 	Media Element
 	----------------------------------------- */
-	$( '.video-player video' ).mediaelementplayer();
+	// $( '.video-player video' ).mediaelementplayer();
 
 	/* -----------------------------------------
 	FlexSlider Init

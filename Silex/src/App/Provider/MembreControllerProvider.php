@@ -3,6 +3,7 @@
 namespace App\Provider;
 
 use Silex\Api\ControllerProviderInterface;
+use Silex\Application;
 
 class MembreControllerProvider implements ControllerProviderInterface {
     
@@ -10,7 +11,7 @@ class MembreControllerProvider implements ControllerProviderInterface {
      * {@inheritDoc}
      * @see \Silex\Api\ControllerProviderInterface::connect()
      */
-    public function connect(\Silex\Application $app)
+    public function connect(Application $app)
     {
         
         # : Créer une instance de Silex\ControllerCollection
