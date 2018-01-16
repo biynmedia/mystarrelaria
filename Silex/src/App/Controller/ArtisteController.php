@@ -3,6 +3,7 @@ namespace App\Controller;
 
 
 use Silex\Application;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -46,16 +47,31 @@ class ArtisteController
                 'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
-                    'placeholder'       => 'Pseudo..'
+                    'placeholder'       => 'Pseudo..',
+                    'data-progression',
+                    'data-helper'       => 'Help users through forms by prividing helpful hinters'
                 ]
             ])
+
+            ->add('IMAGEARTISTE', FileType::class, [
+                'required'          => false,
+                'label'             => false,
+                'attr'              => [
+                    'class'             => 'dropify',
+                    'data-progression',
+                    'data-helper'       => 'Help users through forms by prividing helpful hinters'
+                ]
+            ])
+
             ->add('TELARTISTE', TextType::class, [
                 'required'          => true,
                 'label'             => false,
                 'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
-                    'placeholder'       => 'Téléphone..'
+                    'placeholder'       => 'Téléphone..',
+                    'data-progression',
+                    'data-helper'       => 'Help users through forms by prividing helpful hinters'
                 ]
             ])
             ->add('IDGENRE', ChoiceType::class, [
@@ -206,6 +222,7 @@ class ArtisteController
         $artiste->IDGENRE                   = $artistes['IDGENRE'];
         $artiste->PSEUDOARTISTE             = $artistes['PSEUDOARTISTE'];
         $artiste->TELARTISTE                = $artistes['TELARTISTE'];
+        $artiste->IMAGEARTISTE              = $this->slugify($artistes['PSEUDOARTISTE']).'.jpg';
         $artiste->DESCARTISTE               = $artistes['DESCARTISTE'];
         $artiste->BIOARTISTE                = $artistes['BIOARTISTE'];
         $artiste->SITEINTERNETARTISTE       = $artistes['SITEINTERNETARTISTE'];

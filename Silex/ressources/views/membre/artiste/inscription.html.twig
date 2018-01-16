@@ -2,6 +2,7 @@
 
 {% block stylesheets %} 
     {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
 {% endblock %}
 
 {% block titre %}
@@ -13,28 +14,38 @@
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
             <form class="form-horizontal" method="POST"
-                  enctype="multipart/form-data">
+                  enctype="multipart/form-data" id="inscription">
                 <h3>Nous vous invitons à remplir le formulaire ci-après.</h3>
                 {# Pseudo de l'artiste #}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Pseudo</label>
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                         {{ form_row(form.PSEUDOARTISTE) }}
+                    </div>
+                </div>
+
+                {# Image de l'artiste #}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        Votre image
+                    </label>
+                    <div class="col-md-9">
+                        {{ form_row(form.IMAGEARTISTE) }}
                     </div>
                 </div>
 
                 {# Télephone de l'artiste #}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Téléphone</label>
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                         {{ form_row(form.TELARTISTE) }}
                     </div>
                 </div>
 
                 {# Genre de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Genre</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Genre <i class="fa fa-music" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
                         {{ form_row(form.IDGENRE) }}
                     </div>
                 </div>
@@ -42,7 +53,7 @@
                 {# Déscription de l'artiste #}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Description</label>
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                         {{ form_row(form.DESCARTISTE) }}
                     </div>
                 </div>
@@ -50,7 +61,7 @@
                 {# Biographie de l'artiste #}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Biographie</label>
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                         {{ form_row(form.BIOARTISTE) }}
                     </div>
                 </div>
@@ -58,7 +69,7 @@
                 {# Nom du manager #}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Nom du Manager</label>
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                         {{ form_row(form.NOMMANAGER) }}
                     </div>
                 </div>
@@ -66,79 +77,83 @@
                 {# Prénom du manager #}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Prénom du Manager</label>
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                         {{ form_row(form.PRENOMMANAGER) }}
                     </div>
                 </div>
 
                 {# Email du manager #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Email du Manager</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Email du Manager <i class="fa fa-envelope" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
                         {{ form_row(form.EMAILMANAGER) }}
                     </div>
                 </div>
 
                 {# Télephone du Manager #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Téléphone du Manager</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Téléphone du Manager <i class="fa fa-phone" aria-hidden="true"></i>
+                    </label>
+                    <div class="col-md-9">
                         {{ form_row(form.TELMANAGER) }}
                     </div>
                 </div>
 
                 {# Site internet de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Votre site internet</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Votre site internet <i class="fa fa-link" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
                         {{ form_row(form.SITEINTERNETARTISTE) }}
                     </div>
                 </div>
 
                 {# Facebook de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Facebook</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Facebook <i class="fa fa-facebook-official" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
                         {{ form_row(form.FACEBOOKARTISTE) }}
                     </div>
                 </div>
 
                 {# Twitter de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Twitter</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Twitter <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </label>
+                    <div class="col-md-9">
                         {{ form_row(form.TWITTERARTISTE) }}
                     </div>
                 </div>
 
                 {# Soundcloud de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Soundcloud</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Soundcloud <i class="fa fa-soundcloud" aria-hidden="true"></i></label>
+
+                    <div class="col-md-9">
                         {{ form_row(form.SOUNDCLOUDARTISTE) }}
                     </div>
                 </div>
 
                 {# Youtube de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Youtube</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Youtube <i class="fa fa-youtube-play" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
                         {{ form_row(form.YOUTUBEARTISTE) }}
                     </div>
                 </div>
 
                 {# Snapchat de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Snapchat</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Snapchat <i class="fa fa-snapchat" aria-hidden="true"></i></label>
+                    <div class="col-md-9">
                         {{ form_row(form.SNAPCHATARTISTE) }}
                     </div>
                 </div>
 
                 {# Instagram de l'artiste #}
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Instagram</label>
-                    <div class="col-md-7">
+                    <label class="col-md-3 control-label">Instagram <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </label>
+                    <div class="col-md-9">
                         {{ form_row(form.INSTAGRAMARTISTE) }}
                     </div>
                 </div>
@@ -163,4 +178,42 @@
 
 {% block javascripts %}
     {{ parent() }}
+
+    <script src="//cdn.ckeditor.com/4.8.0/basic/ckeditor.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
+    <script>
+        CKEDITOR.replace('form_BIOARTISTE');
+        CKEDITOR.replace('form_DESCARTISTE');
+
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-d&eacute;posez un fichier ou cliquez ici',
+                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+            }
+        });
+
+        jQuery(document).ready(function($) {
+
+            $("#myform").progression({
+                tooltipWidth: '200',
+                tooltipPosition: 'right',
+                tooltipOffset: '50',
+                showProgressBar: true,
+                showHelper: true,
+                tooltipFontSize: '14',
+                tooltipFontColor: 'fff',
+                progressBarBackground: 'fff',
+                progressBarColor: '6EA5E1',
+                tooltipBackgroundColor:'a2cbfa',
+                tooltipPadding: '10',
+                tooltipAnimate: true
+            });
+
+        });
+
+    </script>
+
 {% endblock %}
