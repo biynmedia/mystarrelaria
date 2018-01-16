@@ -3,6 +3,7 @@
 namespace App\Provider;
 
 use Silex\Api\ControllerProviderInterface;
+use Silex\Application;
 
 class ArtisteControllerProvider implements ControllerProviderInterface {
     
@@ -10,7 +11,7 @@ class ArtisteControllerProvider implements ControllerProviderInterface {
      * {@inheritDoc}
      * @see \Silex\Api\ControllerProviderInterface::connect()
      */
-    public function connect(\Silex\Application $app)
+    public function connect(Application $app)
     {
         
         # : Créer une instance de Silex\ControllerCollection
@@ -24,8 +25,9 @@ class ArtisteControllerProvider implements ControllerProviderInterface {
 
             # Page Profil
             $controllers
-            ->get('/profil', 'App\Controller\ArtisteController::profilAction')
-            ->bind('artiste_profil');
+                ->get('/profil', 'App\Controller\ArtisteController::profilAction')
+                ->bind('artiste_profil');
+
 
         # On retourne la liste des controllers (ControllerCollection)
         return $controllers;

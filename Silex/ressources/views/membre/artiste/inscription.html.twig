@@ -10,6 +10,134 @@
 
 {% block pagecontent %}
     <h3>Nous vous invitons à remplir le formulaire ci-après.</h3>
+
+
+
+<div role="form" class="wpcf7" id="wpcf7-f231-p229-o1" lang="fr" dir="ltr">
+
+    <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+
+        <p>
+            <label>
+                Votre Pseudoe
+                <br />
+                <span class="wpcf7-form-control-wrap your-name"><input type="text" name="PSEUDOARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Votre numéro de téléphone
+                <br />
+                <span class="wpcf7-form-control-wrap your-name"><input type="text" name="TELARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Votre Description
+                <br />
+                <span class="wpcf7-form-control-wrap your-message"><textarea name="DESCARTISTE" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Votre Biographie
+                <br />
+                <span class="wpcf7-form-control-wrap your-message"><textarea name="BIOARTISTE" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Votre genre musical
+                <br />
+                <span class="wpcf7-form-control-wrap your-name">
+                    <select  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true">
+                        <?php while ($genres = mysql_fetch_array($genre) ) { ?>
+                        <option value="list_genre"><?php echo $genres['IDGENRE']; }?></option>
+                    </select>
+                </span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Prénom manager
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="PRENOMMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Nom Manager
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="NOMMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                email Manager
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="EMAILMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Tel Manager
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="TELMANAGER" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Votre propre site inernet :
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="SITEINTERNETARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                SoundCloud
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="SOUNDCLOUDARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                YouTube
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="YOUTUBEARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Twitter
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="TWITTERARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Facebook
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="FACEBOOKARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Instagram
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="INSTAGRAMARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+        <p>
+            <label>
+                Snapchat
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="SNAPCHATARTISTE" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span>
+            </label>
+        </p>
+
+        <input value="M'inscrire" class="wpcf7-form-control wpcf7-submit" type="submit">
+    </form>
+
 {% endblock %}
 
 {% block pagesidebar %}
