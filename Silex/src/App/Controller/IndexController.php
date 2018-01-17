@@ -24,25 +24,32 @@ class IndexController
     public function inscriptionAction(Application $app) {
         return $app['twig']->render('inscription.html.twig');
     }
+
     /**
      * Traitement POST du Formulaire d'Inscription
      * @param Application $app
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function inscriptionPost(Application $app, Request $request) {
         # Vérification et la Sécurisation des données POST
         # ...
+        // Todo il faut vérifier si l'adresse email n'existe pas déjà...
+
         # Connexion à la BDD
         $membre = $app['idiorm.db']->for_table('membre')->create();
+
         # Affectation de Valeurs
-        $membre->PRENOMMEMBRE   = $request->get('PRENOMMEMBRE');
         $membre->NOMMEMBRE      = $request->get('NOMMEMBRE');
+        $membre->PRENOMMEMBRE   = $request->get('PRENOMMEMBRE');
         $membre->EMAILMEMBRE    = $request->get('EMAILMEMBRE');
         $membre->MDPMEMBRE      = $app['security.default_encoder']
             ->encodePassword($request->get('MDPMEMBRE'), '');
-        $membre->ROLEMEMBRE     = 'ROLE_MEMBRE';
+        $membre->ROLEMEMBRE     = serialize(['ROLE_MEMBRE']);
+
         # On persiste en BDD
         $membre->save();
+
         # On envoi un email de confirmation ou de bienvenue...
         # On envoi une notification à l'administrateur
         # ...
