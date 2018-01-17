@@ -1,21 +1,23 @@
-{% extends 'admin.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block stylesheets %} 
+{% block stylesheets %}
     {{ parent() }}
 {% endblock %}
 
-{% block titre %}
-    Mon Profil : Sean Paul
-{% endblock %}
+{% block contenu %}
 
-{% block pagecontent %}
-    <h3>Informations de mon profil...</h3>
+    {#{{  dump(artistes) }}#}
+
     <body class="cpt_artists-template-default single single-cpt_artists postid-121 ci-muzak ci-muzak-5-0 ci-scheme-modern_default ci-dark-scheme">
 
     <div id="page">
         <div class="container">
 
-
+            <div class="row section-title-wrap ">
+                <div class="col-xs-12">
+                    <h3 class="section-title">{% block titre %}{% endblock %}</h3>
+                </div>
+            </div>
 
             <div class="row">
                 <article class="album group post-121 cpt_artists type-cpt_artists status-publish has-post-thumbnail hentry artist-category-producers">
@@ -36,66 +38,26 @@
                     <div class="col-sm-8 content group">
                         <h1 class="entry-title"> <!-- PSEUDO ARTISTE --> </h1>
                         <p class="entry-terms">
-                            <a href="https://www.cssigniter.com/vip/muzak5/artist-category/producers/" rel="tag">  PRODUCTEURS </a>
+                            <a href="https://www.cssigniter.com/vip/muzak5/artist-category/producers/" rel="tag"> <!-- PRODUCTEURS --> </a>
                         </p>
 
-                        <h2>Biographie de l'artiste</h2>
+                        <h2>Biography</h2>
 
                         <p>
                             <!-- BIOGRAPHIEARTISTE -->
                         </p>
 
-                        <h3>Description de l'artiste</h3>
+                        <h3>Cras vel suscipit nisi</h3>
                         <p>
-                            <!-- DESARTISTE -->
+                            Sed ac pretium neque, a commodo enim. Mauris nisl sem, sollicitudin ac tincidunt vel, placerat vitae mi. Cras vel suscipit nisi, in fringilla risus. Curabitur vitae pretium tortor. Donec luctus eleifend vehicula. Quisque venenatis leo blandit dictum eleifend. Sed feugiat nunc a felis auctor egestas. Nullam a suscipit ligula.
                         </p>
-
-                        <!-- IMAGE DE L'ARTISTE -->
                         <figure id="attachment_71" style="max-width: 819px" class="wp-caption alignnone">
                             <a href="https://www.cssigniter.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image.jpg" rel="thumbnails" class="zoom"><img class="wp-image-71 size-full" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image.jpg" alt="" width="819" height="547" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image.jpg 819w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image-300x200.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image-768x513.jpg 768w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image-560x374.jpg 560w" sizes="(max-width: 819px) 100vw, 819px" /></a>
-
+                            <figcaption class="wp-caption-text">
+                                Exclusive Interview
+                            </figcaption>
                         </figure>
-
-                        <h3>Genre musical de l'Artiste</h3>
-                        <p>
-                            <!-- GENRE MUSICAL -->
-                        </p>
-
-                        <h3>Site internet de l'Artiste</h3>
-                        <p>
-                            <!-- SITEINTERNETARTTISTE -->
-                        </p>
-
-                        <h3>Facebook de l'Artiste</h3>
-                        <p>
-                            <!-- FACEBOOKARTISTE -->
-                        </p>
-
-                        <h3>Twitter de l'Artiste</h3>
-                        <p>
-                            <!-- TWITTERARTISTE -->
-                        </p>
-
-                        <h3>SoundCloud de l'Artiste</h3>
-                        <p>
-                            <!-- SOUNDCLOUDARTISTE  -->
-                        </p>
-
-                        <h3>Chaine YouTube de l'Artiste</h3>
-                        <p>
-                            <!-- YOUTUBEARTISTE -->
-                        </p>
-
-                        <h3>SnapChat de l'Artiste</h3>
-                        <p>
-                            <!-- SNAPCHATARTISTE -->
-                        </p>
-
-                        <h3>Instagram de l'Artiste</h3>
-                        <p>
-                            <!-- INSTAGRAMARTISTE -->
-                        </p>
-
+                        <h2>Phasellus lobortis enim neque</h2>
                         <ol class="tracklisting">
                             <li id="custom_player65_1" class="track group custom_player65_1">
                                 <span class="track-no">1</span>
@@ -236,10 +198,7 @@
 
     </div>
     </body>
-{% endblock %}
 
-{% block pagesidebar %}
-    {{ parent() }}
 {% endblock %}
 
 {% block javascripts %}
