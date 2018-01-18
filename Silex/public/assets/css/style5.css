@@ -1085,6 +1085,7 @@ button.mfp-arrow:hover {
     margin: 0;
     padding: 0 0 3px 0;
     line-height: 1;
+    width: 100px;
 }
 
 .list-item-info .list-item-sub {

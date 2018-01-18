@@ -28,18 +28,21 @@
 
         <div class="row">
             <ol class="listing group  filter-container " style="position: relative; height: 1336.12px;">
+
+                {% for artiste in artistes %}
                 <li class="col-xs-12 col-sm-6 col-md-4 producers term-9" style="position: absolute; left: 0px; top: 0px;">
                     <div class="list-item">
-                        <a href=""><img width="580" height="350" src="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""></a>
+                        <a href=""><img width="580" height="350" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/artist12-580x350.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""></a>
                         <div class="list-item-info">
-                            <h2 class="list-item-head">Amy F</h2>
+                            <h2 class="list-item-head"> {{ artiste.PSEUDOARTISTE }} </h2>
                             <p class="list-item-actions">
                                 <a href="https://www.cssigniter.com/vip/muzak5/artists/amy-f/" class="action-btn buy">Learn more</a>
                             </p>
                         </div>
                     </div>
-
                 </li>
+                {% endfor %}
+
             </ol>
         </div>
 
