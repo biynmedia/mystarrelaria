@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{# Block de title défini dans base.html.twig #}
+{% block title %} Discography {% endblock %}
+
+{% block contenu %}
+    <div class="page">
+        <div class="container">
+
+            <div class="row section-title-wrap ">
+                <div class="col-xs-12">
+                    <h3 class="section-title">{% block titre %}Discography{% endblock %}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="filters-nav group">
+                        <li><a href="#filter" class="selected action-btn buy" data-filter="*">All Albums</a></li>
+                        <li><a href="#filter" data-filter=".term-7" class="action-btn buy">Dubstep</a></li>
+                        <li><a href="#filter" data-filter=".term-4" class="action-btn buy">EDM</a></li>
+                        <li><a href="#filter" data-filter=".term-5" class="action-btn buy">Electronica</a></li>
+                        <li><a href="#filter" data-filter=".term-6" class="action-btn buy">House</a></li>
+                        <li><a href="#filter" data-filter=".term-8" class="action-btn buy">Minimal</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <ol class="listing group  filter-container ">
+                    <li class="col-xs-12 col-sm-6 col-md-4 house minimal term-6 term-8">
+                        <div class="list-item">
+                            <a href="https://www.cssigniter.com/vip/muzak5/discography/the-alchemist/"><img width="560" height="560" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12-560x560.jpg" class="attachment-ci_discography size-ci_discography wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12-560x560.jpg 560w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12-150x150.jpg 150w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12-300x300.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12-768x768.jpg 768w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12-100x100.jpg 100w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/album12.jpg 800w" sizes="(max-width: 560px) 100vw, 560px" /></a>
+                            <div class="list-item-info">
+                                <h2 class="list-item-head">The Alchemist</h2>
+                                <p class="list-item-actions">
+                                    <a href="https://www.cssigniter.com/vip/muzak5/discography/the-alchemist/" class="action-btn buy">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %} <!-- contenu -->
