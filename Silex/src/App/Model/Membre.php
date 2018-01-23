@@ -94,7 +94,7 @@ class Membre implements UserInterface
      */
     public function getRoles()
     {
-        return $this->ROLEMEMBRE;
+        return unserialize($this['ROLE_MEMBRE']);
     }
 
     /**

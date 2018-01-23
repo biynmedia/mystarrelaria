@@ -34,21 +34,66 @@ class IndexController
     public function inscriptionPost(Application $app, Request $request) {
         # Vérification et la Sécurisation des données POST
         # ...
-        // Todo il faut vérifier si l'adresse email n'existe pas déjà...
 
-        # Connexion à la BDD
-        $membre = $app['idiorm.db']->for_table('membre')->create();
+        if (!empty($email)) :
 
-        # Affectation de Valeurs
-        $membre->NOMMEMBRE      = $request->get('NOMMEMBRE');
-        $membre->PRENOMMEMBRE   = $request->get('PRENOMMEMBRE');
-        $membre->EMAILMEMBRE    = $request->get('EMAILMEMBRE');
-        $membre->MDPMEMBRE      = $app['security.default_encoder']
-            ->encodePassword($request->get('MDPMEMBRE'), '');
-        $membre->ROLEMEMBRE     = serialize(['ROLE_MEMBRE']);
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) :
 
-        # On persiste en BDD
-        $membre->save();
+                $erreurs['isEmailInDb'] = true;
+
+            else :
+                # Mon email est valide, je vérifie dans la BDD s'il n'est pas déjà présent.
+                $isEmailInDb = ORM::for_table('membre')
+                                    ->where('EMAILMEMBRE', $email)
+                                    ->count();
+
+                if (!$isEmailInDb) :
+
+                    # Connexion à la BDD
+                    $membre = $app['idiorm.db']->for_table('membre')->create();
+
+                    # Affectation de Valeurs
+                    $membre->NOMMEMBRE      = $request->get('NOMMEMBRE');
+                    $membre->PRENOMMEMBRE   = $request->get('PRENOMMEMBRE');
+                    $membre->EMAILMEMBRE    = $email = $request->get('EMAILMEMBRE');
+                    $membre->MDPMEMBRE      = $app['security.default_encoder']
+                        ->encodePassword($request->get('MDPMEMBRE'), '');
+                    $membre->ROLEMEMBRE     = serialize(['ROLE_MEMBRE']);
+
+                    # On persiste en BDD
+                    $membre->save();
+
+                else :
+
+                    $erreurs['isEmailInDb'] = true;
+
+                endif;
+
+            endif;
+
+        else :
+
+            # Sinon, je log l'erreur dans un tableau errors
+            $erreurs['isEmailInDb'] = true;
+
+        endif;
+
+        # Une fois le traitement terminé, on va faire une retour à l'application.
+        if(!isset($erreurs)) :
+
+            # Tous s'est bien passé, je renvoi une réponse positive
+            echo json_encode(['success' => true]);
+
+        else :
+
+            # Sinon, il y a des erreurs, je retourne mon tableau d'erreurs.
+            echo json_encode([
+                'success'   => false,
+                'erreurs'   => $erreurs
+            ]);
+
+        endif;
+
 
         # On envoi un email de confirmation ou de bienvenue...
         # On envoi une notification à l'administrateur
@@ -66,7 +111,7 @@ class IndexController
     public function connexionAction(Application $app, Request $request)
     {
         return $app['twig']->render('connexion.html.twig', [
-            'error' => $app['security.last_error']($request),
+            'error'         => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username')
         ]);
     }
