@@ -38,4 +38,11 @@ class IndexController
         ]);
     }
 
+    public function sidebar(Application $app) {
+        # Transmission à la Vue
+        return $app['twig']->render('sidebar.html.twig', [
+            'sidebar'    => $sidebar
+        ]);
+    }
+
 }
