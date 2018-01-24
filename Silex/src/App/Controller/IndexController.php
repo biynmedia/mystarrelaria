@@ -58,7 +58,7 @@ class IndexController
                     $membre->EMAILMEMBRE    = $email = $request->get('EMAILMEMBRE');
                     $membre->MDPMEMBRE      = $app['security.default_encoder']
                         ->encodePassword($request->get('MDPMEMBRE'), '');
-                    $membre->ROLEMEMBRE     = serialize(['ROLE_MEMBRE']);
+                    $membre->ROLEMEMBRE     = serialize(['ROLE_MEMBRE']); // TODO : Serialize des Roles
 
                     # On persiste en BDD
                     $membre->save();
