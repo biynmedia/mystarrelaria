@@ -35,20 +35,6 @@ class IndexController
         # Vérification et la Sécurisation des données POST
         # ...
 
-        if (!empty($email)) :
-
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) :
-
-                $erreurs['isEmailInDb'] = true;
-
-            else :
-                # Mon email est valide, je vérifie dans la BDD s'il n'est pas déjà présent.
-                $isEmailInDb = ORM::for_table('membre')
-                                    ->where('EMAILMEMBRE', $email)
-                                    ->count();
-
-                if (!$isEmailInDb) :
-
                     # Connexion à la BDD
                     $membre = $app['idiorm.db']->for_table('membre')->create();
 
@@ -63,36 +49,6 @@ class IndexController
                     # On persiste en BDD
                     $membre->save();
 
-                else :
-
-                    $erreurs['isEmailInDb'] = true;
-
-                endif;
-
-            endif;
-
-        else :
-
-            # Sinon, je log l'erreur dans un tableau errors
-            $erreurs['isEmailInDb'] = true;
-
-        endif;
-
-        # Une fois le traitement terminé, on va faire une retour à l'application.
-        if(!isset($erreurs)) :
-
-            # Tous s'est bien passé, je renvoi une réponse positive
-            echo json_encode(['success' => true]);
-
-        else :
-
-            # Sinon, il y a des erreurs, je retourne mon tableau d'erreurs.
-            echo json_encode([
-                'success'   => false,
-                'erreurs'   => $erreurs
-            ]);
-
-        endif;
 
 
         # On envoi un email de confirmation ou de bienvenue...
