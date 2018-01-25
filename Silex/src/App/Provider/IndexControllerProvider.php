@@ -31,6 +31,11 @@ class IndexControllerProvider implements ControllerProviderInterface {
             ->get('/artistes', 'App\Controller\IndexController::artistesAction')
             ->bind('index_artistes');
 
+        #Page Profil
+        $controllers
+            ->get('/info', 'App\Controller\IndexController::artisteInfo')
+            ->bind('index_info');
+
         # On retourne la liste des controllers (ControllerCollection)
         return $controllers;
         

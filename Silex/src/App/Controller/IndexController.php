@@ -38,7 +38,25 @@ class IndexController
         ]);
     }
 
+    public function artistesInfo(Application $app) {
+        # Récupérer les informations des artistes
+        $info = $app['idiorm.db']->for_table('artiste')->find_result_set();
+
+        # Affichage dans la Vue
+        return $app['twig']->render('membre/artiste/profil.html.twig', [
+            'info' => $info
+        ]);
+    }
+
+
     public function sidebar(Application $app) {
+        # Récupération des Informations pour la Sidebar
+        # Ici il n'y a pas de données en bdd pour la sidebar, est-ce que ceci est obligatoire?
+        $sidebar = $app['idiorm.db']->for_table('')
+            ->order_by_desc('')
+            ->find_result_set();
+
+
         # Transmission à la Vue
         return $app['twig']->render('sidebar.html.twig', [
             'sidebar'    => $sidebar
