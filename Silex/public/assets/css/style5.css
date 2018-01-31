@@ -959,7 +959,8 @@ button.mfp-arrow:hover {
 .row-table [class^="col"] {
     display: table-cell;
     float: none;
-    vertical-align: top;
+    /*vertical-align: top;*/
+    vertical-align: middle;
 }
 
 /* MODULE: #Homepage Slider
