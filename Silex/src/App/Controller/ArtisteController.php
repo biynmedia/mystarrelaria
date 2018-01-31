@@ -218,6 +218,7 @@ class ArtisteController
         echo 'IS VALID : ';
         print_r($form->isValid());
 
+
         # Vérification des données du formulaire
 //        if ($form->isValid()) :
 
@@ -227,7 +228,7 @@ class ArtisteController
             # Récupération de l'image
             $image  = $artistes['IMAGEARTISTE'];
             $chemin = PATH_PUBLIC . '/assets/images/artistes/'.$this->slugify($artistes['PSEUDOARTISTE']).'/';
-            $image->move($chemin, $this->slugify($artistes['PSEUDOARTISTE']).'.jpg');
+            //$image->move($chemin, $this->slugify($artistes['PSEUDOARTISTE']).'.jpg'); // Todo Faire une verification de fichier avant le move()
 
             # Insertion en BDD
             $artiste = $app['idiorm.db']->for_table('artiste')->create();
