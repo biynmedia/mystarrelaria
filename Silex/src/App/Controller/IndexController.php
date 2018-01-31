@@ -41,7 +41,7 @@ class IndexController
                     # Affectation de Valeurs
                     $membre->NOMMEMBRE      = $request->get('NOMMEMBRE');
                     $membre->PRENOMMEMBRE   = $request->get('PRENOMMEMBRE');
-                    $membre->EMAILMEMBRE    = $email = $request->get('EMAILMEMBRE');
+                    $membre->EMAILMEMBRE    = $request->get('EMAILMEMBRE');
                     $membre->MDPMEMBRE      = $app['security.default_encoder']
                         ->encodePassword($request->get('MDPMEMBRE'), '');
                     $membre->ROLEMEMBRE     = serialize(['ROLE_MEMBRE']);
