@@ -1,0 +1,74 @@
+{% extends 'admin.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+{% endblock %}
+
+{% block titre %}
+    Je m'inscris comme artiste
+{% endblock %}
+
+{% block pagecontent %}
+
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <form class="form-horizontal" method="GET"
+                  enctype="multipart/form-data" id="inscription">
+                <h3>Trouvez les disponibilités des Artistes à partir de ce formulaire.</h3>
+
+
+                <form action="/vip/muzak5/contact/#wpcf7-f231-p229-o1" method="get" class="wpcf7-form" novalidate="novalidate">
+                    <p>
+                        <label>
+                            Type de Musique de l'artiste
+                            <br />
+                            <span class="wpcf7-form-control-wrap">
+                                <select class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" name="choix">
+                                    <option value="R'Nb">R'Nb</option>
+                                    <option value="Dancehall">Dancehall</option>
+                                    <option value="Hip Hop">Hip Hop</option>
+                                    <option value="Reggae">Reggae</option>
+                                    <option value="Traditionell">Traditionelle</option>
+                                    <option value="Slam">Slam</option>
+                                    <option value="Compas">Compas</option>
+                                    <option value="Zouk">Zouk</option>
+                                    <option value="Trap">Trap</option>
+                                </select>
+                            </span>
+                        </label>
+                    </p>
+
+                    <p>
+                        <label>
+                            Date de l'événement
+                            <br />
+                            <input type="date" name="date-evenement" size="40">
+                        </label>
+                    </p>
+
+
+                    {# Submit #}
+                    <div class="form-group">
+                        <div class="col-xs-7 col-xs-offset-3">
+                            <button type="submit"
+                                    value="S'inscrire">Rechercher</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block pagesidebar %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
