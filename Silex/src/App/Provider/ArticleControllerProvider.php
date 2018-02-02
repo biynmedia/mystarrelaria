@@ -5,7 +5,6 @@ namespace App\Provider;
 
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
-use Silex\ControllerCollection;
 
 class ArticleControllerProvider implements ControllerProviderInterface
 {

@@ -105,7 +105,7 @@ class ArticleController
         endif;
 
         # Affichage du Formulaire dans la vue
-        return $app['twig']->render('/admin/ajouterarticle.html.twig', [
+        return $app['twig']->render('admin/ajouterarticle.html.twig', [
             'form' => $form->createView()
         ]);
 
