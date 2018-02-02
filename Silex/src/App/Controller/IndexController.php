@@ -30,11 +30,13 @@ class IndexController
      */
     public function artistesAction(Application $app) {
         # Récupérer la liste des artistes
-        $artistes = $app['idiorm.db']->for_table('view_artistes')->find_result_set();
+        $artistes   = $app['idiorm.db']->for_table('view_artistes')->find_result_set();
+        $genre      = $app['idiorm.db']->for_table('genre')->find_result_set();
 
         # Affichage dans la Vue
         return $app['twig']->render('membre/artiste/artistes.html.twig', [
-            'artistes' => $artistes
+            'artistes'  => $artistes,
+            'genre'     => $genre
         ]);
     }
 

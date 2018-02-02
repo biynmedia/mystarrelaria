@@ -274,16 +274,20 @@ class ArtisteController
 
     /**
      * Affichage de la Page Inscription
+     * @param $artiste
+     * @param Application $app
      * @return \Symfony\Component\HttpFoundation\Response;
      */
-    public function profilAction(Application $app) {
+    public function profilAction($artiste, Application $app) {
 
-        # Création du Formulaire
-
-        # Traitement du Formulaire
+        # Récupération du Genre
+        $genre = $app['idiorm.db']->for_table('genre')->find_one($artiste->genre_IDGENRE);
 
         # Affichage dans la Vue
-        return $app['twig']->render('membre/artiste/profil.html.twig');
+        return $app['twig']->render('membre/artiste/profil.html.twig', [
+            'artiste' => $artiste,
+            'genre'   => $genre
+        ]);
     }
 
 }

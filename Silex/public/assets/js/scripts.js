@@ -147,6 +147,7 @@
 			// filter items when filter link is clicked
 			var $filters = $( '.filters-nav li a' );
 			$filters.click( function( e ) {
+
 				var selector = $( this ).attr( 'data-filter' );
 				$( this ).parent().siblings().find( 'a' ).removeClass( 'selected' );
 				$( this ).addClass( 'selected' );
@@ -161,6 +162,7 @@
 				});
 
 				e.preventDefault();
+
 			});
 		}
 
