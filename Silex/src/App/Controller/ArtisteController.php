@@ -283,10 +283,14 @@ class ArtisteController
         # Récupération du Genre
         $genre = $app['idiorm.db']->for_table('genre')->find_one($artiste->genre_IDGENRE);
 
+        # Récupération des Albums
+        $albums = $app['idiorm.db']->for_table('view_discographie')->where('IDARTISTE',$artiste->IDARTISTE)->find_result_set();
+
         # Affichage dans la Vue
         return $app['twig']->render('membre/artiste/profil.html.twig', [
             'artiste' => $artiste,
-            'genre'   => $genre
+            'genre'   => $genre,
+            'albums'  => $albums
         ]);
     }
 

@@ -24,10 +24,10 @@
                             <div class="nav-side">
                                 <nav id="nav" class="nav">
                                     <ul id="navigation" class="navigation group">
-                                        <li class="menu-item current-menu-item">
+                                        <li class="menu-item {% if(active == 'accueil') %} current-menu-item{% endif %}">
                                             <a href="{{ url('index_index') }}">Accueil</a>
                                         </li>
-                                        <li class="menu-item"><a href="{{ url('index_artistes') }}">Artistes à découvrir</a></li>
+                                        <li class="menu-item {% if(active == 'artistes') %} current-menu-item{% endif %}"><a href="{{ url('index_artistes') }}">Artistes à découvrir</a></li>
                                         <li class="menu-item"><a href="#">Sorties musicales</a></li>
                                         <li class="menu-item"><a href="#">Clips Vidéos</a></li>
                                         <li class="menu-item"><a href="#">Contact</a></li>

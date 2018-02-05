@@ -25,9 +25,11 @@ $app->register(new IdiormServiceProvider(), array(
         'connection_string' => 'mysql:host=localhost;dbname=relaria',
         'username' => 'root',
         'password' => '',
-        'id_column_overrides' => array(
-            'genre'     => 'IDGENRE',
-            'artiste'   => 'ALIASARTISTE'
+        'id_column_overrides'   => array(
+            'genre'             => 'IDGENRE',
+            'artiste'           => 'ALIASARTISTE',
+            'album'             => 'IDALBUM',
+            'view_discographie' => 'IDALBUM'
         )
     )
 ));
