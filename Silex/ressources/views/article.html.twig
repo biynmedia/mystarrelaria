@@ -1,0 +1,65 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+Articles
+{% endblock %}
+
+
+{% block contenu %}
+
+    <div class="container">
+        <div class="row">
+            <!--colleft-->
+            <div class="col-md-8 col-sm-12">
+                <!--post-detail-->
+                <article class="post-detail">
+                    <h1>{{ article.TITREARTICLE }}</h1>
+                    <div class="meta-post">
+                        <a href="#">
+
+                        </a>
+                        <em></em>
+                        <span>
+                                {{ article.DATECREATIONARTICLE }}
+                        </span>
+                    </div>
+
+                <img alt="{{ article.TITREARTICLE }}" src="{{ asset('assets/images/articles/'~article.FEATUREDIMAGEARTICLE) }}" class="img-responsive" />
+
+                    {{ article.CONTENUARTICLE | raw }}
+
+                <h5 class="text-right font-heading"><strong></strong> </h5>
+
+                </article>
+                <!--social-detail-->
+                <div class="social-detail">
+                    <span>Partager notre article</span>
+
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="google">
+                                <i class="fa fa-google"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="pinterest">
+                                <i class="fa fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

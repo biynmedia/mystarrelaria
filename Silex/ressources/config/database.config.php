@@ -26,7 +26,8 @@ $app->register(new IdiormServiceProvider(), array(
         'username' => DBUSERNAME,
         'password' => DBPASSWORD,
         'id_column_overrides' => array(
-            'genre' => 'IDGENRE'
+            'genre'     => 'IDGENRE',
+            'article'   => 'IDARTICLE'
         )
     )
 ));

@@ -30,7 +30,7 @@ class ArticleController
                 'constraints'  => array(new NotBlank()),
                 'attr'         => [
                     'class'         => 'form-control',
-                    'placeholder'   => 'Titre de l\'articles...'
+                    'placeholder'   => 'Titre de l\'article...'
                 ]
             ])
             ->add('CONTENUARTICLE', TextareaType::class, [
@@ -73,19 +73,10 @@ class ArticleController
         $chemin = PATH_PUBLIC . '/assets/images/articles';
         $image->move($chemin, $this->slugify($article['TITREARTICLE']).'.jpg');
 
-        # Recupération Auteur
-        $token = $app['security.token_storage']->getToken();
-
-            if (null !== $token) {
-                $auteur = $token->getUser();
-            } else {
-                return $app->redirect('deconnexion.html');
-            }
 
         # Insertion en BDD
         $articleDb = $app['idiorm.db']->for_table('article')->create();
 
-            $articleDb->IDAUTEUR                =   $auteur->getIDAUTEUR();
             $articleDb->TITREARTICLE            =   $article['TITREARTICLE'];
             $articleDb->CONTENUARTICLE          =   $article['CONTENUARTICLE'];
             $articleDb->SPECIALARTICLE          =   $article['SPECIALARTICLE'];
