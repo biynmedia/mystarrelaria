@@ -26,6 +26,16 @@ class IndexControllerProvider implements ControllerProviderInterface {
                 # pour la créations de lien : "controller_action"
                 ->bind('index_index');
 
+        # Page Artistes
+        $controllers
+            ->get('/artistes', 'App\Controller\IndexController::artistesAction')
+            ->bind('index_artistes');
+
+        #Page Profil
+        $controllers
+            ->get('/info', 'App\Controller\IndexController::artisteInfo')
+            ->bind('index_info');
+
             # Page Inscription
         $controllers
             ->get('/inscription', 'App\Controller\IndexController::inscriptionAction')

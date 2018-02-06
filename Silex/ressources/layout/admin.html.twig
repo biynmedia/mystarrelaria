@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block contenu %}
+
+<div class="container">
+    <div class="row section-title-wrap">
+        <div class="col-xs-12">
+            <h3 class="section-title">{% block titre %}{% endblock %}</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 content">
+            <article class="static post-229 page type-page status-publish hentry">
+                <div class="post-body">
+                    {% block pagecontent %}{% endblock %}
+                </div>
+            </article>
+        </div>
+       <!-- <aside class="col-md-4 sidebar">
+            {##}% block pagesidebar %}
+                <div class="widget_ci_event_widget widget group">
+                    <h3 class="widget-title">Membre</h3>
+                    <ul>
+                        <li><a href="#">Consulter mon Profil</a></li>
+                    </ul>
+                </div>
+                <div class="widget_ci_event_widget widget group">
+                        <h3 class="widget-title">Artiste</h3>
+                        <ul>
+                            <li><a href="#">Créer une Fiche</a></li>
+                            <li><a href="#">Consulter ma Fiche</a></li>
+                            <li><a href="#">Mettre à jour ma disponibilité</a></li>
+                        </ul>
+                    </div>
+            {##}% endblock %}
+        </aside> -->
+    </div>
+</div>
+
+{% endblock %}

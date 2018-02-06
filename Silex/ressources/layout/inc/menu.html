@@ -1,55 +1,52 @@
-<div id="page">
 
+    <!-- MOBILE BAR -->
+    <div id="mobile-bar">
+        <a class="menu-trigger" href="#mobilemenu"><i class="fa fa-bars"></i></a>
+        <p class="mob-title">
+            Accueil
+        </p>
+    </div>
 
-    <div class="container">
-        <!-- ########################### HEADER ########################### -->
-        <header id="header">
-            <div class="row row-table">
-                <div class="col-md-3 col-sm-5 col-xs-12">
-                    <div id="logo" class="imglogo">
-                        <h1>
-                            <a href="https://www.cssigniter.com/vip/muzak5/"><img  src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/logo.png" alt="Muzak"  /></a>
-                        </h1>
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-7 col-xs-12">
-                    <div class="head-right">
-                        <div class="nav-side">
-                            <nav id="nav" class="nav">
-                                <ul id="navigation" class="navigation group">
-                                    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-220">
-                                        <a href="https://www.cssigniter.com/vip/muzak5/">Home</a>
-                                        <ul class="sub-menu">
-                                            <li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-57"><a href="https://www.cssigniter.com/vip/muzak5/">Home – Style 1</a></li>
-                                            <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-218 current_page_item menu-item-221"><a href="https://www.cssigniter.com/vip/muzak5/home-style-2/">Home – Style 2</a></li>
-                                            <li id="menu-item-227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a href="https://www.cssigniter.com/vip/muzak5/home-style-3/">Home – Style 3</a></li>
-                                            <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="https://www.cssigniter.com/vip/muzak5/home-style-4/">Home – Style 4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-127"><a href="https://www.cssigniter.com/vip/muzak5/events/">Events</a></li>
-                                    <li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70"><a href="https://www.cssigniter.com/vip/muzak5/discography-2/">Discography</a></li>
-                                    <li id="menu-item-100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a href="https://www.cssigniter.com/vip/muzak5/artists-2/">Artists</a></li>
-                                    <li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="https://www.cssigniter.com/vip/muzak5/photos-2/">Photos</a></li>
-                                    <li id="menu-item-199" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-199"><a href="https://www.cssigniter.com/vip/muzak5/videos-2/">Videos</a></li>
-                                    <li id="menu-item-206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-206"><a href="https://www.cssigniter.com/vip/muzak5/shop/">Shop</a></li>
-                                    <li id="menu-item-59" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="https://www.cssigniter.com/vip/muzak5/news/">News</a></li>
-                                    <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="https://www.cssigniter.com/vip/muzak5/contact/">Contact</a></li>
-                                </ul>
-                            </nav>
+    <div id="page">
+        <div class="container">
+            <!-- ########################### HEADER ########################### -->
+            <header id="header">
+                <div class="row row-table">
+                    <div class="col-md-2 col-sm-5 col-xs-12">
+                        <div id="logo" class="imglogo">
+                            <h1>
+                                <a href="{{ url('index_index') }}"><img src="{{ asset('assets/images/logo-mystarre.png') }}" alt="MyStarre"  /></a>
+                            </h1>
                         </div>
-                        <div class="widgets-head">
-                            <div id="socials-ignited-3" class="widget_socials_ignited widget group">
-                                <div class="ci-socials-ignited ci-socials-ignited-fa">
-                                    <a href="#"><i class="fa fa-soundcloud"></i></a>
-                                    <a href="#"><i class="fa fa-spotify"></i></a>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+                    <div class="col-md-10 col-sm-7 col-xs-12">
+                        <div class="head-right">
+                            <div class="nav-side">
+                                <nav id="nav" class="nav">
+                                    <ul id="navigation" class="navigation group">
+                                        <li class="menu-item {% if(active == 'accueil') %} current-menu-item{% endif %}">
+                                            <a href="{{ url('index_index') }}">Accueil</a>
+                                        </li>
+                                        <li class="menu-item {% if(active == 'artistes') %} current-menu-item{% endif %}"><a href="{{ url('index_artistes') }}">Artistes à découvrir</a></li>
+                                        <li class="menu-item"><a href="#">Sorties musicales</a></li>
+                                        <li class="menu-item"><a href="#">Clips Vidéos</a></li>
+                                        <li class="menu-item"><a href="#">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="widgets-head">
+                                <div id="socials-ignited-3" class="widget_socials_ignited widget group">
+                                    <div class="ci-socials-ignited ci-socials-ignited-fa">
+                                        <a href="#"><i class="fa fa-soundcloud"></i></a>
+                                        <a href="#"><i class="fa fa-spotify"></i></a>
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </header>
-    </div> <!-- fin du container définit dans menu -->
+                <div id="mobilemenu"></div>
+            </header>
+        </div> <!-- fin du container définit dans menu -->

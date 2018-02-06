@@ -249,6 +249,12 @@ a {
   border-top: 0;
 }
 
+.section-title-wrap .section-title {
+  background-image: url(https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/hero_events.jpg);
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+
 /* Hero audio player
 ================================================== */
 .hero-player {
@@ -569,6 +575,7 @@ button:hover,
 }
 .list-item-info .list-item-head {
   font-size: 16px;
+  width: 100px;
 }
 .list-item-info .price {
   position: static;

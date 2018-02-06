@@ -3,6 +3,7 @@
 {# Block de title défini dans base.html.twig #}
 {% block title %} Accueil {% endblock %}
 
+{% set active = 'accueil' %}
 
 {# Block de Contenu défini dans base.html.twig #}
 {% block contenu %}
@@ -17,18 +18,17 @@
                         <a href="https://www.cssigniter.com/vip/muzak5/discography/little-lies/">
                             <img src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/slider001.jpg" alt="exclusive mix for our readers" />
                             <div class="slide-text">
-                                <h2>exclusive mix for our readers</h2>
-                                <a href="https://www.cssigniter.com/vip/muzak5/discography/little-lies/" class="btn"> Listen Now </a>
+                                <h2>Bienvenue sur MyStarre</h2>
+                                <a href="#" class="btn"> Découvrir les artistes du moment</a>
                             </div>
                         </a>
                     </li>
-                    <li class="video-slide"><iframe width="750" height="422" src="https://www.youtube.com/embed/r8pKDk8bHNM?feature=oembed" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></li>
                     <li>
                         <a href="https://www.cssigniter.com/vip/muzak5/galleries/lib/">
                             <img src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/slider002.jpg" alt="new photo gallery from Lib, New York" />
                             <div class="slide-text">
-                                <h2>new photo gallery from Lib, New York</h2>
-                                <a href="https://www.cssigniter.com/vip/muzak5/galleries/lib/" class="btn"> View Gallery </a>
+                                <h2>Toutes les nouveautés...</h2>
+                                <a href="#" class="btn"> Derniers Clips Vidéos </a>
                             </div>
                         </a>
                     </li>
@@ -36,20 +36,13 @@
                         <a href="https://www.cssigniter.com/vip/muzak5/events/">
                             <img src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/slider003.jpg" alt="tour dates announced" />
                             <div class="slide-text">
-                                <h2>tour dates announced</h2>
-                                <a href="https://www.cssigniter.com/vip/muzak5/events/" class="btn"> View Tour Dates </a>
+                                <h2>En exclu chez nous !</h2>
+                                <a href="#" class="btn"> Dernières Sorties Musicales </a>
                             </div>
                         </a>
                     </li>
                 </ul>
-                <ol class="ci-control-nav ci-control-paging">
-                    <li>
-                        <a class="ci-active">1</a>
-                        <a class="">2</a>
-                        <a class="">3</a>
-                        <a class="">4</a>
-                    </li>
-                </ol>
+                <ol class="ci-control-nav ci-control-paging"></ol>
                 <ul class="ci-direction-nav">
                     <li>
                         <a class="ci-prev" href="#"></a>
@@ -91,7 +84,7 @@
 
     <div class="row">
         <div class="col-md-6 content">
-            <h3 class="widget-title">News</h3>
+            <h3 class="widget-title">Actualité</h3>
             <article class="post group">
                 <div class="post-intro">
                     <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
@@ -152,46 +145,6 @@
                     </p>
                 </div>
             </article>
-            <article class="post group">
-                <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/grey-area-label-launches-with-first-12-inch/" title="Permalink to Grey Area label launches with first 12-inch"> Grey Area label launches with first 12-inch </a></h2>
-                </div>
-                <div class="post-body">
-                    <p class="meta">
-                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
-                        </time>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/grey-area-label-launches-with-first-12-inch/#respond">No Comments</a>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
-                    </p>
-                </div>
-            </article>
-            <article class="post group">
-                <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/sushitech-lines-up-double-eps-from-delano-smith-and-steve-osullivan/" title="Permalink to Sushitech lines up double-EPs from Delano Smith and Steve O&#8217;Sullivan"> Sushitech lines up double-EPs from Delano Smith and Steve O&#8217;Sullivan </a></h2>
-                </div>
-                <div class="post-body">
-                    <p class="meta">
-                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
-                        </time>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/sushitech-lines-up-double-eps-from-delano-smith-and-steve-osullivan/#respond">No Comments</a>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
-                    </p>
-                </div>
-            </article>
             <div id="paging" class="navigation group">
             <span aria-current='page' class='page-numbers current'>1</span>
             <a class='page-numbers' href='https://www.cssigniter.com/vip/muzak5/home-style-2/page/2/'>2</a>
@@ -207,5 +160,6 @@
 
     </div><!-- /container -->
     </div> <!-- fin du container définit dans menu -->
+</div>
 
 {% endblock %}

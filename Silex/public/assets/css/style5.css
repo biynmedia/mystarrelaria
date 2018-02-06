@@ -959,7 +959,8 @@ button.mfp-arrow:hover {
 .row-table [class^="col"] {
     display: table-cell;
     float: none;
-    vertical-align: top;
+    /*vertical-align: top;*/
+    vertical-align: middle;
 }
 
 /* MODULE: #Homepage Slider
@@ -1085,6 +1086,7 @@ button.mfp-arrow:hover {
     margin: 0;
     padding: 0 0 3px 0;
     line-height: 1;
+    width: 100px;
 }
 
 .list-item-info .list-item-sub {
