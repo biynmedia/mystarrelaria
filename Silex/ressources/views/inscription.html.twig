@@ -7,6 +7,14 @@
     <div class="row">
         <div class="col-xs-6 col-xs-push-3">
             <h2 class="text-center">Inscription d'un Membre</h2>
+
+            {% if error is defined %}
+                <div class="alert alert-danger">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    {{ error }}
+                </div>
+            {% endif %}
+
             <form action="{{ url('news_inscription_post') }}" method="POST"
                   class="form-horizontal">
 

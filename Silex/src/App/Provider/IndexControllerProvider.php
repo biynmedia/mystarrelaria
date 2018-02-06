@@ -28,22 +28,22 @@ class IndexControllerProvider implements ControllerProviderInterface {
 
             # Page Inscription
         $controllers
-            ->get('/inscription.html', 'App\Controller\IndexController::inscriptionAction')
+            ->get('/inscription', 'App\Controller\IndexController::inscriptionAction')
             ->bind('news_inscription');
 
             # POST Inscription
         $controllers
-            ->post('/inscription.html', 'App\Controller\IndexController::inscriptionPost')
+            ->post('/inscription', 'App\Controller\IndexController::inscriptionPost')
             ->bind('news_inscription_post');
 
             # Page Connexion
         $controllers
-            ->get('/connexion.html', 'App\Controller\IndexController::connexionAction')
+            ->get('/connexion', 'App\Controller\IndexController::connexionAction')
             ->bind('news_connexion');
 
             # Page Deconnexion
         $controllers
-            ->get('/deconnexion.html', 'App\Controller\NewsController::deconnexionAction')
+            ->get('/deconnexion', 'App\Controller\NewsController::deconnexionAction')
             ->bind('news_deconnexion');
             
         # On retourne la liste des controllers (ControllerCollection)

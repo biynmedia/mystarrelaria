@@ -32,8 +32,16 @@ class IndexController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function inscriptionPost(Application $app, Request $request) {
-        # Vérification et la Sécurisation des données POST
-        # ...
+
+        $error = '';
+
+        # Vérification si l'adresse email existe
+        $isEmailInDb = $app['idiorm.db']->for_table('membre')
+            ->where('EMAILMEMBRE', $request->get('EMAILMEMBRE'))
+            ->count();
+
+            # Si elle n'existe pas, on inscrit le membre.
+            if(!$isEmailInDb) :
 
                     # Connexion à la BDD
                     $membre = $app['idiorm.db']->for_table('membre')->create();
@@ -49,13 +57,20 @@ class IndexController
                     # On persiste en BDD
                     $membre->save();
 
+                    // TODO Envoi d'un email de bievenue au membre
+                    // TODO Création d'un Log, Inscription d'un Utilisateur
 
+                # On redirige l'utilisateur sur la page de connexion
+                return $app->redirect('connexion.html?inscription=success');
 
-        # On envoi un email de confirmation ou de bienvenue...
-        # On envoi une notification à l'administrateur
-        # ...
-        # On redirige l'utilisateur sur la page de connexion
-        return $app->redirect('connexion.html?inscription=success');
+            else :
+                $error = 'Ce compte existe déjà. Mot de passe oublié ?';
+            endif;
+
+        return $app['twig']->render('inscription.html.twig', [
+            'error' => $error
+        ]);
+
     }
 
     /**
