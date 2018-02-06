@@ -1,75 +1,274 @@
+@charset "UTF-8";
 /*
- * jQuery FlexSlider v2.0
+ * jQuery FlexSlider v2.5.0
  * http://www.woothemes.com/flexslider/
  *
  * Copyright 2012 WooThemes
- * Free to use under the GPLv2 license.
+ * Free to use under the GPLv2 and later license.
  * http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Contributing author: Tyler Smith (@mbmufffin)
+ *
+ * Modified for CSSIgniter Themes
  */
+/* ====================================================================================================================
+ * RESETS
+ * ====================================================================================================================*/
+.ci-container a:hover,
+.ci-container a:focus,
+.ci-slider a:hover,
+.ci-slider a:focus {
+  outline: none;
+}
 
- 
-/* Browser Resets */
-.flex-container a:active,
-.flexslider a:active,
-.flex-container a:focus,
-.flexslider a:focus  {outline: none;}
 .slides,
-.flex-control-nav,
-.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+.slides > li,
+.ci-control-nav,
+.ci-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-/* FlexSlider Necessary Styles
-*********************************/ 
-.flexslider {margin: 0; padding: 0;}
-.flexslider .slides > li {display: none; margin-bottom:0; line-height: 1;  -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img {width: 100%; display: block;}
-.flex-pauseplay span {text-transform: capitalize;}
+.ci-pauseplay span {
+  text-transform: capitalize;
+}
 
-/* Clearfix for the .slides element */
-.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
-html[xmlns] .slides {display: block;} 
-* html .slides {height: 1%;}
+/* ====================================================================================================================
+ * BASE STYLES
+ * ====================================================================================================================*/
+.ci-slider {
+  margin: 0;
+  padding: 0;
+}
+.ci-slider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+.ci-slider .slides img {
+  width: 100%;
+  display: block;
+}
+.ci-slider .slides:after {
+  content: "\0020";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+html[xmlns] .ci-slider .slides {
+  display: block;
+}
+* html .ci-slider .slides {
+  height: 1%;
+}
+.no-js .ci-slider .slides > li:first-child {
+  display: block;
+}
 
-/* No JavaScript Fallback */
-/* If you are not using another script, such as Modernizr, make sure you
- * include js that eliminates this class on page load */
-.no-js .slides > li:first-child {display: block;}
+/* ====================================================================================================================
+ * DEFAULT THEME
+ * ====================================================================================================================*/
+.ci-slider {
+  margin: 0;
+  background: transparent;
+  border: none;
+  position: relative;
+  zoom: 1;
+  border-radius: 5px;
+  -webkit-box-shadow: "" 0 0 0 transparent;
+  -moz-box-shadow: "" 0 0 0 transparent;
+  -o-box-shadow: "" 0 0 0 transparent;
+  box-shadow: "" 0 0 0 transparent;
+}
+.ci-slider .slides {
+  zoom: 1;
+}
+.ci-slider .slides img {
+  height: auto;
+}
 
+.ci-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.loading .ci-viewport {
+  max-height: 300px;
+}
 
-/* FlexSlider Default Theme
-*********************************/
-.flexslider {margin: 0 0 16px 0; position: relative; zoom: 1;}
-.flex-viewport {max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
-.loading .flex-viewport {max-height: 300px;}
-.flexslider .slides {zoom: 1;}
+.carousel li {
+  margin-right: 5px;
+}
 
-.carousel li {margin-right: 5px}
+.ci-direction-nav {
+  *height: 0;
+}
+.ci-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+  color: #FFF;
+  text-shadow: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.ci-direction-nav a:before {
+  font-family: "FontAwesome";
+  font-size: 40px;
+  display: inline-block;
+  content: "";
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+}
+.ci-direction-nav a.ci-next:before {
+  content: "";
+}
+.ci-direction-nav .ci-prev {
+  left: 10px;
+}
+.ci-direction-nav .ci-next {
+  right: 10px;
+  text-align: right;
+}
+.ci-slider:hover .ci-direction-nav .ci-prev {
+  opacity: 0.7;
+  left: 10px;
+}
+.ci-slider:hover .ci-direction-nav .ci-prev:hover {
+  opacity: 1;
+}
+.ci-slider:hover .ci-direction-nav .ci-next {
+  opacity: 0.7;
+  right: 10px;
+}
+.ci-slider:hover .ci-direction-nav .ci-next:hover {
+  opacity: 1;
+}
+.ci-direction-nav .ci-disabled {
+  opacity: 0 !important;
+  filter: alpha(opacity=0);
+  cursor: default;
+}
 
-/* Direction Nav */
-.flex-direction-nav {*height: 0;}
-.flex-direction-nav a {width: 30px; height: 30px; margin: -20px 0 0; display: block; background: url(images/bg_direction_nav.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
-.flex-direction-nav .flex-next {background-position: 100% 0; right: -36px; }
-.flex-direction-nav .flex-prev {left: -36px;}
-.flexslider:hover .flex-next {opacity: 0.8; right: 5px;}
-.flexslider:hover .flex-prev {opacity: 0.8; left: 5px;}
-.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {opacity: 1;}
-.flex-direction-nav .flex-disabled {opacity: .3!important; filter:alpha(opacity=30); cursor: default;}
+.ci-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+.ci-pauseplay a:before {
+  font-family: "FontAwesome";
+  font-size: 20px;
+  display: inline-block;
+  content: "";
+}
+.ci-pauseplay a:hover {
+  opacity: 1;
+}
+.ci-pauseplay a.ci-play:before {
+  content: "";
+}
 
-/* Control Nav */
-.flex-control-nav {width: 80%; position: absolute; bottom: 30px; right:50px;  text-align: right; line-height: 1; }
-.flex-control-nav li {margin: 0 0 0 6px; display: inline-block; zoom: 1; *display: inline; line-height: 1; }
-.flex-control-paging li a {text-align:left; width: 11px; height: 11px; display: block; background: #666; background: rgba(0,0,0,0.5); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; box-shadow: inset 0 0 3px rgba(0,0,0,0.3);}
-.flex-control-paging li a:hover { background: #333; background: rgba(0,0,0,0.7); }
-.flex-control-paging li a.flex-active { cursor: default; }
+.ci-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+}
+.ci-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
 
-.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
-.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
-.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
-.flex-control-thumbs img:hover {opacity: 1;}
-.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+.ci-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.ci-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+.ci-control-paging li a.ci-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
 
+.ci-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+.ci-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+.ci-control-thumbs img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.ci-control-thumbs img:hover {
+  opacity: 1;
+}
+.ci-control-thumbs .ci-active {
+  opacity: 1;
+  cursor: default;
+}
+
+/* ====================================================================================================================
+ * RESPONSIVE
+ * ====================================================================================================================*/
 @media screen and (max-width: 860px) {
-  .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
-  .flex-direction-nav .flex-next {opacity: 1; right: 0;}
+  .ci-direction-nav .ci-prev {
+    opacity: 1;
+    left: 10px;
+  }
+  .ci-direction-nav .ci-next {
+    opacity: 1;
+    right: 10px;
+  }
 }
