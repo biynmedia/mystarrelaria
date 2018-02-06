@@ -1,14 +1,10 @@
 <?php
 
+include 'database.connexion.php';
+
 use Idiorm\Silex\Provider\IdiormServiceProvider;
 
-#1 : Connexion BDD
-define('DBHOST',     'localhost');
-define('DBNAME',     'relaria');
-define('DBUSERNAME', 'root');
-define('DBPASSWORD', '');
-
-#2 : Doctrine DBAL
+#1 : Doctrine DBAL
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'    => 'pdo_mysql',
@@ -19,7 +15,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
-#3 : Idiorm ORM
+#2 : Idiorm ORM
 $app->register(new IdiormServiceProvider(), array(
     'idiorm.db.options' => array(
         'connection_string' => 'mysql:host=localhost;dbname=relaria',
