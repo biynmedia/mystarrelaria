@@ -128,4 +128,17 @@ class IndexController
         ]);
     }
 
+    public function articleAction($slugarticle,
+                                  $idarticle, Application $app) {
+        # index.php/business/une-formation-innovante-a-denain_98426852.html
+        # Récupération de l'Article
+        $article = $app['idiorm.db']->for_table('article')
+            ->find_one($idarticle);
+
+        return $app['twig']->render('article.html.twig', [
+            'article'       => $article,
+        ]);
+    }
+
+
 }

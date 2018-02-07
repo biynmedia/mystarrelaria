@@ -18,11 +18,12 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 #2 : Idiorm ORM
 $app->register(new IdiormServiceProvider(), array(
     'idiorm.db.options' => array(
-        'connection_string' => 'mysql:host=localhost;dbname=relaria',
-        'username' => 'root',
-        'password' => '',
-        'id_column_overrides'   => array(
-            'genre'             => 'IDGENRE',
+        'connection_string' => 'mysql:host='.DBHOST.';dbname='.DBNAME,
+        'username' => DBUSERNAME,
+        'password' => DBPASSWORD,
+        'id_column_overrides' => array(
+            'genre'     => 'IDGENRE',
+            'article'   => 'IDARTICLE',
             'artiste'           => 'ALIASARTISTE',
             'album'             => 'IDALBUM',
             'view_discographie' => 'IDALBUM'
