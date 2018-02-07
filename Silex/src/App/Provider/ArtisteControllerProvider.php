@@ -6,7 +6,7 @@ use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 
 class ArtisteControllerProvider implements ControllerProviderInterface {
-    
+
     /**
      * {@inheritDoc}
      * @see \Silex\Api\ControllerProviderInterface::connect()
@@ -26,7 +26,11 @@ class ArtisteControllerProvider implements ControllerProviderInterface {
 
             # Page Profil
             $controllers
-                ->get('/profil', 'App\Controller\ArtisteController::profilAction')
+                ->get('/{artiste}', 'App\Controller\ArtisteController::profilAction')
+                # On retourne au controller directement l'obet artiste !
+                ->convert('artiste', function($artiste) use($app) {
+                    return $app['idiorm.db']->for_table('artiste')->find_one($artiste);
+                })
                 ->bind('artiste_profil');
 
 

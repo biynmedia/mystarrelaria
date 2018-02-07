@@ -1,86 +1,56 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheets %} 
+{% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha256-UK1EiopXIL+KVhfbFa8xrmAWPeBjMVdvYMYkTAEv/HI=" crossorigin="anonymous" />
 {% endblock %}
-
-{% block titre %}
-    Mon Profil :
-{% endblock %}
-
-{% set active = 'artistes' %}
 
 {% block contenu %}
 
+    {#{{  dump(artistes) }}#}
+
+    <body class="cpt_artists-template-default single single-cpt_artists postid-121 ci-muzak ci-muzak-5-0 ci-scheme-modern_default ci-dark-scheme">
+
+    <div id="page">
         <div class="container">
-            <div class="row section-title-wrap "><div class="col-xs-12"><h3 class="section-title">{{ artiste.PSEUDOARTISTE }}</h3></div></div>
+
+            <div class="row section-title-wrap ">
+                <div class="col-xs-12">
+                    <h3 class="section-title">{% block titre %}{% endblock %}</h3>
+                </div>
+            </div>
+
             <div class="row">
                 <article class="album group post-121 cpt_artists type-cpt_artists status-publish has-post-thumbnail hentry artist-category-producers">
-
                     <div class="col-sm-4">
                         <!-- IMAGE -->
-                        <a href="{{ asset('assets/images/artistes/'~artiste.IMAGEARTISTE) }}" alt="{{ artiste.PSEUDOARTISTE }}" class="overlay-link ci-lightbox">
-                            <img src="{{ asset('assets/images/artistes/'~artiste.IMAGEARTISTE) }}" alt="{{ artiste.PSEUDOARTISTE }}" alt="{{ artiste.PSEUDOARTISTE }}" />
-                        </a>
-
-                        <!-- DESSOUS IMAGE SIDEBAR -->
-                        <div id="single-sidebar" class="sidebar">
-
-                            <div id="ci_events_widget-5" class="widget_ci_events_widget widget group">
-                                <h3 class="widget-title">Professionnel ?</h3>
-                                <p>Contactez cet artiste, vérifiez sa disponibilité, ...</p>
-                            </div>
-
-                            <div id="ci_events_widget-5" class="widget_ci_events_widget widget group ms-reseauxsociaux">
-                                <h3 class="widget-title">Ses réseaux</h3>
-                                <ul class="list-inline">
-                                    {% if artiste.SITEINTERNETARTISTE is not empty %}
-                                        <li><a target="_blank" href="{{ artiste.SITEINTERNETARTISTE }}"><i class="fa fa-laptop fa-3x" aria-hidden="true"></i></a></li>
-                                    {% endif %}
-
-                                    {% if artiste.FACEBOOKARTISTE is not empty %}
-                                        <li><a target="_blank" href="{{ artiste.FACEBOOKARTISTE }}"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></li>
-                                    {% endif %}
-
-                                    {% if artiste.TWITTERARTISTE is not empty %}
-                                        <li><a target="_blank" href="{{ artiste.TWITTERARTISTE }}"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a></li>
-                                    {% endif %}
-
-                                    {% if artiste.SOUNDCLOUDARTISTE is not empty %}
-                                        <li><a target="_blank" href="{{ artiste.SOUNDCLOUDARTISTE }}"><i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a></li>
-                                    {% endif %}
-
-                                    {% if artiste.YOUTUBEARTISTE is not empty %}
-                                        <li><a target="_blank" href="{{ artiste.YOUTUBEARTISTE }}"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a></li>
-                                    {% endif %}
-
-                                    {% if artiste.INSTAGRAMARTISTE is not empty %}
-                                        <li><a target="_blank" href="{{ artiste.INSTAGRAMARTISTE }}"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                            <div id="ci_events_widget-5" class="widget_ci_events_widget widget group ms-reseauxsociaux">
-                                <h3 class="widget-title">Clip à découvrir</h3>
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/-XgOxoxw9JA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
+                        <div class="post-cover">
+                            <a href="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/artist12-1024x768.jpg" class="overlay-link ci-lightbox"><img width="580" height="350" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/artist12-580x350.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" /></a>
                         </div>
                     </div>
 
                     <div class="col-sm-8 content group">
-                        <h1 class="entry-title">{{ artiste.PSEUDOARTISTE }}</h1>
+                        <h1 class="entry-title"> <!-- PSEUDO ARTISTE --> </h1>
                         <p class="entry-terms">
-                            <a href="javascript:void(0)">{{ genre.NOMGENRE }}</a>
+                            <a href="https://www.cssigniter.com/vip/muzak5/artist-category/producers/" rel="tag"> <!-- PRODUCTEURS --> </a>
                         </p>
+
+                        <h2>Biography</h2>
 
                         <p>
-                            {{ artiste.DESCARTISTE }}
+                            <!-- BIOGRAPHIEARTISTE -->
                         </p>
 
-                        <div class="clear"></div>
-
-                        <h3>Quelques morceaux</h3>
-
+                        <h3>Cras vel suscipit nisi</h3>
+                        <p>
+                            Sed ac pretium neque, a commodo enim. Mauris nisl sem, sollicitudin ac tincidunt vel, placerat vitae mi. Cras vel suscipit nisi, in fringilla risus. Curabitur vitae pretium tortor. Donec luctus eleifend vehicula. Quisque venenatis leo blandit dictum eleifend. Sed feugiat nunc a felis auctor egestas. Nullam a suscipit ligula.
+                        </p>
+                        <figure id="attachment_71" style="max-width: 819px" class="wp-caption alignnone">
+                            <a href="https://www.cssigniter.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image.jpg" rel="thumbnails" class="zoom"><img class="wp-image-71 size-full" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image.jpg" alt="" width="819" height="547" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image.jpg 819w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image-300x200.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image-768x513.jpg 768w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/content_image-560x374.jpg 560w" sizes="(max-width: 819px) 100vw, 819px" /></a>
+                            <figcaption class="wp-caption-text">
+                                Exclusive Interview
+                            </figcaption>
+                        </figure>
+                        <h2>Phasellus lobortis enim neque</h2>
                         <ol class="tracklisting">
                             <li id="custom_player65_1" class="track group custom_player65_1">
                                 <span class="track-no">1</span>
@@ -183,57 +153,47 @@
                                 </div>
                                 <a class="sm2_button" href="https://www.cssigniter.com/assets/audio/track03.mp3"><i class="fa fa-play"></i></a>
                             </li>
+                            <li id="custom_player65_4" class="track group custom_player65_4">
+                                <span class="track-no">4</span>
+                                <p class="track-info">
+                                    <span class="sub-head">The Player</span>
+                                    <span class="main-head">Ramon Tapia & Stavroz</span>
+                                </p>
+                                <div class="btns"></div>
+                                <a class="sm2_button" href="https://www.cssigniter.com/assets/audio/track04.mp3"><i class="fa fa-play"></i></a>
+                            </li>
+                            <li id="custom_player65_5" class="track group custom_player65_5">
+                                <span class="track-no">5</span>
+                                <p class="track-info">
+                                    <span class="sub-head">Sunrise</span>
+                                    <span class="main-head">Optional Subtitle</span>
+                                </p>
+                                <div class="btns"></div>
+                                <a class="sm2_button" href="https://www.cssigniter.com/assets/audio/track05.mp3"><i class="fa fa-play"></i></a>
+                            </li>
+                            <li id="custom_player65_6" class="track group custom_player65_6">
+                                <span class="track-no">6</span>
+                                <p class="track-info">
+                                    <span class="sub-head">Souncloud Track</span>
+                                </p>
+                                <div class="btns"></div>
+                                <a href="#track65_6" class="track-listen sc"><i class="fa fa-soundcloud"></i></a>
+                                <div id="track65_6" class="track-audio">
+                                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F198714762&visual=true"></iframe>
+                                </div>
+                            </li>
                         </ol>
 
-                        <div class="clear"></div>
-
-                        <h2>Biographie</h2>
-                        <div class="ms-bioartiste">
-                            {{ artiste.BIOARTISTE | raw }}
-                        </div>
-
-                        <div class="clear"></div>
-
-                        {% if albums is not empty %}
-                            <h2>Albums</h2>
-                            <div class="ms-albumsartiste">
-                                <div class="ms-albums">
-                                    {% for album in albums %}
-                                        <div>
-                                            <img src="{{ asset('assets/images/discographie/'~artiste.ALIASARTISTE~'/'~album.PHOTOALBUM) }}" alt="{{ album.TITREALBUM }}">
-                                        </div>
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-                        {% endif %}
                     </div>
                 </article>
             </div>
         </div>
 
-{% endblock %}
+    </div>
+    </body>
 
-{% block pagesidebar %}
-    {{ parent() }}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://fastcdn.org/Readmore.js/2.1.0/readmore.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
-    <script>
-        $(function() {
-            $('.ms-bioartiste').readmore({
-                speed: 75,
-                moreLink: '<a class="action-btn" href="javascript:void(0);">Lire la suite</a>',
-                lessLink: '<a class="action-btn" href="javascript:void(0);">Réduire</a>'
-            });
-            $('.ms-albums').slick({
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-        });
-    </script>
 {% endblock %}

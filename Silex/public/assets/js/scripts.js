@@ -4,30 +4,30 @@
 	/* -----------------------------------------
 	Responsive Menus Init with mmenu
 	----------------------------------------- */
-	var $mainNav   = $( '.navigation' );
-	var $mobileNav = $( '#mobilemenu' );
+    var $mainNav   = $( '.navigation' );
+    var $mobileNav = $( '#mobilemenu' );
 
-	$mainNav.clone().removeAttr( 'id' ).removeClass().appendTo( $mobileNav );
-	$mobileNav.find( 'li' ).removeAttr( 'id' );
+    $mainNav.clone().removeAttr( 'id' ).removeClass().appendTo( $mobileNav );
+    $mobileNav.find( 'li' ).removeAttr( 'id' );
 
-	$mobileNav.mmenu({
-		offCanvas: {
-			position: 'top',
-			zposition: 'front'
-		},
-		"autoHeight": true,
-		"navbars": [
-			{
-				"position": "top",
-				"content": [
-					"prev",
-					"title",
-					"close"
-				]
-			}
-		],
-		"extensions": ["theme-dark"]
-	});
+    $mobileNav.mmenu({
+        offCanvas: {
+            position: 'top',
+            zposition: 'front'
+        },
+        "autoHeight": true,
+        "navbars": [
+            {
+                "position": "top",
+                "content": [
+                    "prev",
+                    "title",
+                    "close"
+                ]
+            }
+        ],
+        "extensions": ["theme-dark"]
+    });
 
 
 	/* -----------------------------------------
@@ -147,6 +147,7 @@
 			// filter items when filter link is clicked
 			var $filters = $( '.filters-nav li a' );
 			$filters.click( function( e ) {
+
 				var selector = $( this ).attr( 'data-filter' );
 				$( this ).parent().siblings().find( 'a' ).removeClass( 'selected' );
 				$( this ).addClass( 'selected' );
@@ -161,6 +162,7 @@
 				});
 
 				e.preventDefault();
+
 			});
 		}
 

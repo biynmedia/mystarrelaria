@@ -4,42 +4,49 @@
     {{ parent() }}
 {% endblock %}
 
+{% set active = 'artistes' %}
+
 {% block contenu %}
 
-    {{ dump(artistes) }}
 
     <div class="container">
+
         <div class="row section-title-wrap">
             <div class="col-xs-12">
-                <h3 class="section-title">{% block titre %}Artistes{% endblock %}</h3>
+                <h3 class="section-title">{% block titre %}Artistes à découvrir{% endblock %}</h3>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
                 <ul class="filters-nav group">
-                    <li><a href="#filter" class="selected action-btn buy" data-filter="*">All Artists</a></li>
-                    <li><a href="#filter" data-filter=".term-11" class="action-btn buy">DJ</a></li>
-                    <li><a href="#filter" data-filter=".term-9" class="action-btn buy">Producers</a></li>
-                    <li><a href="#filter" data-filter=".term-10" class="action-btn buy">Singers</a></li>
+                    <li><a href="#filter" class="selected action-btn buy" data-filter="*">Tous les artistes</a></li>
+                    {% for artiste in artistes %}
+                        <li><a href="#filter" data-filter=".{{ artiste.NOMGENRE }}" class="action-btn buy">{{ artiste.NOMGENRE }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
 
-        <div class="row">
-            <ol class="listing group  filter-container " style="position: relative; height: 1336.12px;">
-                <li class="col-xs-12 col-sm-6 col-md-4 producers term-9" style="position: absolute; left: 0px; top: 0px;">
-                    <div class="list-item">
-                        <a href=""><img width="580" height="350" src="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""></a>
-                        <div class="list-item-info">
-                            <h2 class="list-item-head">Amy F</h2>
-                            <p class="list-item-actions">
-                                <a href="https://www.cssigniter.com/vip/muzak5/artists/amy-f/" class="action-btn buy">Learn more</a>
-                            </p>
-                        </div>
-                    </div>
+        <div>
+            <ol class="listing group  filter-container">
 
-                </li>
+                {% for artiste in artistes %}
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 producers {{ artiste.NOMGENRE }}">
+                        <div class="list-item">
+                            <a href="{{ url('artiste_profil', {'artiste': artiste.ALIASARTISTE}) }}"><img src="{{ asset('assets/images/artistes/'~artiste.IMAGEARTISTE) }}" alt="{{ artiste.PSEUDOARTISTE }}"></a>
+                            <div class="list-item-info">
+                                <h2 class="list-item-head"> {{ artiste.PSEUDOARTISTE }} </h2> <!-- définit dans IndexController, table wiew_artistes -->
+                                <p class="list-item-actions">
+                                    <a href="{{ url('artiste_profil', {'artiste': artiste.ALIASARTISTE}) }}" class="action-btn buy">Voir son profil</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
             </ol>
         </div>
 
