@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ article.TITREARTICLE }} {% endblock %}
+
+{% block contenu %}
+
+    <div class="row">
+        <div class="col-md-8 content">
+            <article class="inner-post post-50 post type-post status-publish format-standard has-post-thumbnail hentry category-news">
+                <div class="post-intro">
+                    <img width="750" height="450" src="{{ article.FEATUREDIMAGEARTICLE }}" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h1 class="entry-title"> {{ article.TITREARTICLE }}</h1>
+                </div>
+                <div class="post-body group">
+                    <p class="meta">
+                        <time class="published post-date" datetime="2017-10-26T15:09:48+00:00">
+                            {{ article.DATECREATIONARTICLE }}
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/radio-slave-function-remix-scuba-on-claustrophobia-remixes-lp/#respond">No Comments</a>
+                        <span class="bull">&bull;</span>
+                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
+                    </p>
+                    <div class="entry-content">
+                        <p>
+                            {{ article.CONTENUARTICLE }}
+                        </p>
+                    </div>
+                </div>
+
+
+{% endblock %}

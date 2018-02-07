@@ -92,15 +92,17 @@
     <div class="row">
         <div class="col-md-6 content">
             <h3 class="widget-title">News</h3>
+
+            {% for articles in article %}
             <article class="post group">
                 <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/radio-slave-function-remix-scuba-on-claustrophobia-remixes-lp/" title="Permalink to Radio Slave, Function remix Scuba on Claustrophobia Remixes LP"> Radio Slave, Function remix Scuba on Claustrophobia Remixes LP </a></h2>
+                    <img width="750" height="450" src="{{ article.FEATUREDIMAGEARTICLE }}" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news03-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
+                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/radio-slave-function-remix-scuba-on-claustrophobia-remixes-lp/" title="Permalink to Radio Slave, Function remix Scuba on Claustrophobia Remixes LP"> {{ article.TITREARTICLE }} </a></h2>
                 </div>
                 <div class="post-body">
                     <p class="meta">
                         <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
+                            {{ article.DATECREATIONARTICLE }}
                         </time>
                         <span class="bull">&bull;</span>
                         <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/radio-slave-function-remix-scuba-on-claustrophobia-remixes-lp/#respond">No Comments</a>
@@ -108,90 +110,12 @@
                         <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
+                        {{ article.CONTENUARTICLE }}
                     </p>
                 </div>
             </article>
-            <article class="post group">
-                <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news04-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/giorgio-gigli-and-brendon-moeller-partner-on-the-anatomy-of-thought/" title="Permalink to Giorgio Gigli and Brendon Moeller partner on The Anatomy Of Thought"> Giorgio Gigli and Brendon Moeller partner on The Anatomy Of Thought </a></h2>
-                </div>
-                <div class="post-body">
-                    <p class="meta">
-                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
-                        </time>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/giorgio-gigli-and-brendon-moeller-partner-on-the-anatomy-of-thought/#respond">No Comments</a>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
-                    </p>
-                </div>
-            </article>
-            <article class="post group">
-                <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news05-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/richie-hawtin-tale-of-us-play-the-bpm-festival-2017/" title="Permalink to Richie Hawtin, Tale Of Us play The BPM Festival 2017"> Richie Hawtin, Tale Of Us play The BPM Festival 2017 </a></h2>
-                </div>
-                <div class="post-body">
-                    <p class="meta">
-                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
-                        </time>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/richie-hawtin-tale-of-us-play-the-bpm-festival-2017/#respond">No Comments</a>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
-                    </p>
-                </div>
-            </article>
-            <article class="post group">
-                <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news06-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/grey-area-label-launches-with-first-12-inch/" title="Permalink to Grey Area label launches with first 12-inch"> Grey Area label launches with first 12-inch </a></h2>
-                </div>
-                <div class="post-body">
-                    <p class="meta">
-                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
-                        </time>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/grey-area-label-launches-with-first-12-inch/#respond">No Comments</a>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
-                    </p>
-                </div>
-            </article>
-            <article class="post group">
-                <div class="post-intro">
-                    <img width="750" height="450" src="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07.jpg" class="attachment-ci_post_thumbnail size-ci_post_thumbnail wp-post-image" alt="" srcset="https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07.jpg 750w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07-300x180.jpg 300w, https://vip-2246.kxcdn.com/vip/muzak5/wp-content/uploads/sites/20/2017/10/news07-560x336.jpg 560w" sizes="(max-width: 750px) 100vw, 750px" />
-                    <h2><a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/sushitech-lines-up-double-eps-from-delano-smith-and-steve-osullivan/" title="Permalink to Sushitech lines up double-EPs from Delano Smith and Steve O&#8217;Sullivan"> Sushitech lines up double-EPs from Delano Smith and Steve O&#8217;Sullivan </a></h2>
-                </div>
-                <div class="post-body">
-                    <p class="meta">
-                        <time class="post-date" datetime="2017-10-26T15:09:48+00:00">
-                            October 26, 2017
-                        </time>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/2017/10/26/sushitech-lines-up-double-eps-from-delano-smith-and-steve-osullivan/#respond">No Comments</a>
-                        <span class="bull">&bull;</span>
-                        <a href="https://www.cssigniter.com/vip/muzak5/category/news/" rel="category tag">News</a>
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend erat vel maximus sagittis. Phasellus sit amet tortor congue, aliquam lacus quis, bibendum libero. Nulla facilisi. Donec massa justo, pulvinar a justo nec, laoreet auctor eros. Etiam faucibus pulvinar accumsan. Curabitur faucibus erat tortor, vel viverra odio ornare nec. Aliquam[&#8230;]
-                    </p>
-                </div>
-            </article>
+            {% endfor %}
+
             <div id="paging" class="navigation group">
             <span aria-current='page' class='page-numbers current'>1</span>
             <a class='page-numbers' href='https://www.cssigniter.com/vip/muzak5/home-style-2/page/2/'>2</a>
