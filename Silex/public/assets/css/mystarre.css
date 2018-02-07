@@ -19,3 +19,11 @@
     height: 200px;
     object-fit: cover;
 }
+
+.ms-btnconnexion {
+    margin-top: 15px !important;
+}
+
+.head-right {
+    margin-top: -20px !important;
+}

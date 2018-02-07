@@ -34,6 +34,50 @@
                                     </ul>
                                 </nav>
                             </div>
+                        </div>
+                        <div class="head-right">
+                            <div class="nav-side">
+                                <nav id="nav" class="nav">
+                                    <ul id="navigation" class="navigation group">
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                <li class="menu-item">
+                                                    <a href="#">Bonjour  {{ app.user.PRENOMMEMBRE }}</a>
+                                                </li>
+                                            {% if is_granted('ROLE_MEMBRE') %}
+                                                <li class="menu-item">
+                                                    <a href="#">Mon Espace Perso</a>
+                                                </li>
+                                            {% endif %}
+
+                                            {% if is_granted('ROLE_ARTISTE') %}
+                                                <li class="menu-item">
+                                                    <a href="#">Espace Artiste</a>
+                                                </li>
+                                            {% endif %}
+
+                                            {% if is_granted('ROLE_ADMIN') %}
+                                                <li class="menu-item">
+                                                    <a href="#">Espace Administrateur</a>
+                                                </li>
+                                            {% endif %}
+
+                                            <li class="menu-item">
+                                                <a href="{{ url('index_deconnexion') }}">Déconnexion</a>
+                                            </li>
+
+                                        {% else %}
+
+                                            <li class="menu-item">
+                                                <a href="{{ url('index_connexion') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Connexion</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="{{ url('index_inscription') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Inscription</a>
+                                            </li>
+
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
                             <div class="widgets-head">
                                 <div id="socials-ignited-3" class="widget_socials_ignited widget group">
                                     <div class="ci-socials-ignited ci-socials-ignited-fa">

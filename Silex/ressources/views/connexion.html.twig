@@ -5,8 +5,8 @@
 {% block contenu %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-xs-push-3">
-                <h2 class="text-center">Connexion d'un Membre</h2>
+            <div class="col-xs-8 col-xs-push-2">
+                <h2 class="text-center">Connexion</h2>
 
                 {% if error %}
                     <div class="alert alert-danger">
@@ -37,12 +37,12 @@
                         <div class="col-xs-6">
                             <input name="_password" id="MDPMEMBRE"
                                    class="form-control" required type="password"
-                                   placeholder="*******">
+                                   placeholder="*******************">
                         </div>
                     </div>
 
                     {# Bouton Submit #}
-                    <input type="submit" class="btn btn-block btn-primary"
+                        <input type="submit" class="btn btn-block btn-primary ms-btnconnexion"
                            value="Connexion">
 
                 </form>
