@@ -30,7 +30,6 @@ class ArtisteController
      */
     public function inscriptionAction(Application $app, Request $request) {
 
-
         # Récupération la liste des genres
         $genres = function() use($app) {
 
@@ -55,7 +54,7 @@ class ArtisteController
             ->add('PSEUDOARTISTE', TextType::class, [
                 'required'          => true,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'Pseudo..',
@@ -75,7 +74,7 @@ class ArtisteController
             ->add('TELARTISTE', TextType::class, [
                 'required'          => true,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'Téléphone..',
@@ -93,7 +92,7 @@ class ArtisteController
             ->add('DESCARTISTE', TextareaType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-textarea',
                     'placeholder'       => 'Decrivez vous..'
@@ -102,7 +101,7 @@ class ArtisteController
             ->add('BIOARTISTE', TextareaType::class, [
                 'required'          => true,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-textarea',
                     'placeholder'       => 'Votre biographie..'
@@ -111,7 +110,6 @@ class ArtisteController
             ->add('NOMMANAGER', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'Nom de votre manager..'
@@ -120,7 +118,6 @@ class ArtisteController
             ->add('PRENOMMANAGER', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'Prénom de votre manager..'
@@ -129,7 +126,6 @@ class ArtisteController
             ->add('EMAILMANAGER', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'Email..'
@@ -138,7 +134,6 @@ class ArtisteController
             ->add('TELMANAGER', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'Téléphone..'
@@ -147,7 +142,7 @@ class ArtisteController
             ->add('SITEINTERNETARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'URL..'
@@ -156,7 +151,6 @@ class ArtisteController
             ->add('FACEBOOKARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'URL..'
@@ -165,7 +159,7 @@ class ArtisteController
             ->add('TWITTERARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => '@..'
@@ -174,7 +168,6 @@ class ArtisteController
             ->add('SOUNDCLOUDARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'URL..'
@@ -183,7 +176,7 @@ class ArtisteController
             ->add('YOUTUBEARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
+//                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'URL..'
@@ -192,7 +185,6 @@ class ArtisteController
             ->add('SNAPCHATARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'URL..'
@@ -201,7 +193,6 @@ class ArtisteController
             ->add('INSTAGRAMARTISTE', TextType::class, [
                 'required'          => false,
                 'label'             => false,
-                'constraints'       => array(new NotBlank()),
                 'attr'              => [
                     'class'             => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required',
                     'placeholder'       => 'URL..'
@@ -213,14 +204,8 @@ class ArtisteController
         # Traitement des données POST
         $form->handleRequest($request);
 
-        // Todo La mathode is valid ne retourne rien il faut voir pourquoi...
-
-        echo 'IS VALID : ';
-        print_r($form->isValid());
-
-
         # Vérification des données du formulaire
-//        if ($form->isValid()) :
+        if ($form->isValid()) :
 
             # Récuperation des données
             $artistes = $form->getData();
@@ -228,17 +213,17 @@ class ArtisteController
             # Récupération de l'image
             $image  = $artistes['IMAGEARTISTE'];
             $chemin = PATH_PUBLIC . '/assets/images/artistes/'.$this->slugify($artistes['PSEUDOARTISTE']).'/';
-            //$image->move($chemin, $this->slugify($artistes['PSEUDOARTISTE']).'.jpg'); // Todo Faire une verification de fichier avant le move()
+            $image->move($chemin, $this->slugify($artistes['PSEUDOARTISTE']).'.jpg'); // Todo Faire une verification de fichier avant le move()
 
             # Insertion en BDD
             $artiste = $app['idiorm.db']->for_table('artiste')->create();
             $genre   = $app['idiorm.db']->for_table('genre')->find_one($artistes['IDGENRE']);
 
-            # On assoice les colonnes de notre BDD avec les valeurs du formulaire.
+            # On associe les colonnes de notre BDD avec les valeurs du formulaire.
 
             # Colonne mySQL                         # Valeurs du Formulaire
             $artiste->genre_IDGENRE             = $artistes['IDGENRE'];
-            $membre_IDMEMBRE                    = // Todo il faut aussi l'ID du membre connecté... Donc il faut une inscription
+            $artiste->membre_IDMEMBRE                    = 6; // Todo A modifier une fois la connexion prête.
             $artiste->PSEUDOARTISTE             = $artistes['PSEUDOARTISTE'];
             $artiste->TELARTISTE                = $artistes['TELARTISTE'];
             $artiste->ALIASARTISTE              = $this->slugify($artistes['PSEUDOARTISTE']);
@@ -255,17 +240,15 @@ class ArtisteController
             $artiste->PRENOMMANAGER             = $artistes['PRENOMMANAGER'];
             $artiste->NOMMANAGER                = $artistes['NOMMANAGER'];
             $artiste->EMAILMANAGER              = $artistes['EMAILMANAGER'];
-            $artiste->TELMANAGER                = $artistes['TELMANAGER'];
-
-            print_r($artiste);
+            $artiste->TELMANAGER                = $artistes['TELMANAGER'];  
 
             # Insertion en BDD
             $artiste->save();
 
-            # On redirige l'utilisateur sur sa page profile
+            # On redirige l'utilisateur sur sa page profil
             // Todo Redirection de l'utilisateur sur la page profil... Ne pourra se faire que lorsque la page sera faite...
 
-//        endif;
+        endif;
 
         # Affichage du formulaire dans la Vue
         return $app['twig']->render('membre/artiste/inscription.html.twig', [
