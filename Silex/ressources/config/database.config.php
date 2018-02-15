@@ -4,8 +4,8 @@ use Idiorm\Silex\Provider\IdiormServiceProvider;
 
 #1 : Connexion BDD
 define('DBHOST',     'localhost');
-define('DBNAME',     '');
-define('DBUSERNAME', '');
+define('DBNAME',     'Relaria');
+define('DBUSERNAME', 'root');
 define('DBPASSWORD', '');
 
 #2 : Doctrine DBAL
